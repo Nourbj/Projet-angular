@@ -1,0 +1,43 @@
+logo-color : pink 1 : #fd99cb
+logo-color : pink 2 : #fac4e3
+logo-color : pink 3 : #faf6fa
+logo-color : pink 4 : #eba6cc
+logo-color : pink 5 : #c7adc3
+logo-color : pink 6 : #c399b6
+logo-color : pink 7 : #d9c5d9
+logo-color : pink 8 : #d9b6cb
+logo-color : pink 9 : #d5a5bb
+
+
+landing-img1-color : pink : #ef6d9c
+landing-img1-color : beige : #f9f3ed
+
+
+background: linear-gradient(to right, #9c83f7, #fbe4a5);
+
+
+
+<div class="hamburger-menu">
+  <div class="bar"></div>
+</div>
+
+/* .hamburger-menu {
+  position: relative;
+  z-index: 99;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  display: none;
+}
+
+.hamburger-menu .bar {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  background-color: var(--darkTwo);
+  border-radius: 3px;
+  transition: 0.5s;
+} */

@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { LandingHeaderComponent } from './landing-header/landing-header.component';
+import { LandingContainerComponent } from './landing-container/landing-container.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    LandingHeaderComponent,
+    LandingContainerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
