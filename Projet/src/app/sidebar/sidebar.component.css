@@ -1,0 +1,110 @@
+body {
+  font-family: verdana, geneva, sans-serif;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: rgb(233, 233, 233);
+}
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.navbar {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.logo h1 {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+ul {
+  margin-top: 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin-bottom: 1.5rem;
+}
+
+li a {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: rgb(85, 83, 83);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+li a i {
+  width: 24px;
+  font-size: 18px;
+  margin-right: 0.5rem;
+}
+
+li a:hover {
+  color: blueviolet;
+}
+
+.logout {
+  position: absolute;
+  bottom: 20px;
+}
+
+/* Main Section */
+.main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.main-top {
+  background: #fff;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgb(43, 43, 43);
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* App Description Section */
+.description {
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
