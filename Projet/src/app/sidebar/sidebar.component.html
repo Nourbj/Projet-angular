@@ -1,47 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Tiny Tasker</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-
-</head>
-<body>
-  <div class="navbar">
-    <a href="#">
-      <!-- Add your logo image or text here -->
-      <img src="your-logo.png" alt="Tiny Tasker" style="height: 40px; width: 100;">
-    </a>
-    <a href="#" style="float: right;">
-      <i class="fas fa-sign-out-alt"></i>
-      <span class="nav-item">Logout</span>
-    </a>
-  </div>
+<header>
   <div class="container">
-    <ul>
-      <li>
-        <a routerLink="/profile" routerLinkActive="active">
-          <i class="fas fa-user"></i>
-          <span class="nav-item">Profile</span>
-        </a>
-      </li>
-      <li><a href="#">
-        <i class="fas fa-chart-bar"></i>
-        <span class="nav-item">Projects</span>
-      </a></li>
-      <li><a href="#">
-        <i class="fas fa-tasks"></i>
-        <span class="nav-item"> Contact Us</span>
-      </a></li>
-            <li><a href="#">
-        <i class="fas fa-question-circle"></i>
-        <span class="nav-item">Help</span>
-      </a></li>
-    </ul>
-    <section class="main">
-      <div class="main-top">
-        <p>Welcome to Tiny Tasker 👋</p>
-      </div>
-    </section>
+    <div class="logo">
+      <img src="../../assets/img/logo1.png" alt="Logo" />
+      <h3>TinyTasker</h3>
+    </div>
+
+    <div class="links">
+      <ul>
+        <li><a routerLink="#">Logout</a></li>
+      
+      </ul>
+
+      <div class="overlay"></div> 
+    </div>
   </div>
-</body>
-</html>
+</header>
