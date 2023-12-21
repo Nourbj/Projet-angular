@@ -8,6 +8,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 body{
   background: #f9f3ed;
 }
@@ -70,6 +71,8 @@ a:hover{
   bottom: 0;
 }
 
+
+
 /* Main Section */
 .main{
   position: relative;
@@ -90,98 +93,34 @@ a:hover{
 
 
 
-
-/* Courses */
-.main-course{
-  margin-top:100px ;
-  text-transform: capitalize;
-}
-.course-box{
-  width: 100%;
-  height: 100px;
-  padding: 10px 10px 30px 10px;
-  margin-top: 10px;
-  background:  #f8f7f7;
-  border-radius: 10px;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-}
 .course-box ul{
   list-style: none;
   display: flex;
 }
-.course-box ul li{
-  margin: 10px;
-  color: gray;
-  cursor: pointer;
-}
-.course-box ul .active{
-  color: #000;
-  border-bottom: 1px solid #000;
-}
-.course-box .course{
-  display: flex;
-}
-.box {
-  width: 33%;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-  background: rgb(235, 233, 233);
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
 
-.box h2 {
-  font-size: 24px;
-  font-weight: bold;
-  color: rgb(17, 17, 17);
-  margin-bottom: 20px;
-  margin-top: 0;
-}
 
-.box p {
-  font-size: 12px;
-  margin-top: 5px;
-}
 
-.box button {
-  background: #000;
-  color: #fff;
-  padding: 7px 10px;
-  border-radius: 10px;
-  margin-top: 3rem;
-  cursor: pointer;
-}
 
-.box button:hover {
-  background: rgba(0, 0, 0, 0.842);
-}
 
-.box i {
-  font-size: 7rem;
-  float: right;
-  margin: -20px 20px 20px 0;
-}
+
+
+
 
 
 
 /* container Section */
 .main-course {
-  margin-top: 150px;
+  margin-top: 70px;
   text-transform: capitalize;
-  background-color: #f9edee; /* Ajout d'une couleur de fond */
+  background-color:  #f9edee; /* Ajout d'une couleur de fond */
   padding: 20px; /* Ajout d'un espace intérieur */
 }
 
 .course-box {
   width: 100%;
-  height: 100px;
+  height: 50px;
   padding: 20px;
-  margin-top: 10px;
+  margin-top: 0; /* Adjusted to set margin-top to 0 */
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
@@ -193,11 +132,31 @@ a:hover{
 }
 
 .course-box h2 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   color: rgb(17, 17, 17);
-  margin-bottom: 20px;
+  margin-bottom: 1px;
   margin-top: 0;
 }
 
+.card.overflow-hidden p,
+.course-box ul li {
+  margin: 30px 20px; /* Ajustez la marge en haut et en bas selon vos préférences */
+  padding: 10px;
+  background-color: #fff; /* Couleur de fond pour chaque boîte */
+  border-radius: 50px; /* J'ai ajusté la bordure pour que ce soit uniforme */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.card.overflow-hidden p,
+.course-box ul li strong {
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(17, 17, 17);
+  margin-bottom: 0px; /* Ajustez la marge en bas selon vos préférences */
+  margin-top: 4;
+}

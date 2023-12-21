@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ContactComponent } from './contact/contact.component';
-import { HelpComponent } from './help/help.component';
+import { HelpingComponent } from './helping/helping.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { HelpComponent } from './help/help.component';
     SidebarComponent,
     ProfileComponent,
     ContactComponent,
-    HelpComponent, 
+    HelpingComponent,
   ],
   imports: [
     BrowserModule,

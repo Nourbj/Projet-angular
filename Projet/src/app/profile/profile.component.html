@@ -1,94 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Tiny Tasker</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <title>Tiny Tasker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <!-- Add your custom CSS stylesheets or styles here -->
 </head>
+
 <body>
-  <div class="container">
-    <nav>
-      <div class="navbar">
-        <div class="logo">
-          <img src="https://img.icons8.com/?size=64&id=dKiCz5Ywqtkf&format=png" alt="">
-          <h1>Tiny Tasker</h1>
-        </div>
-        <ul>
-          <li><a href="#">
-            <i class="fas fa-user"></i>
-            <span class="nav-item">Profile</span>
-          </a></li>
-          <li><a href="#">
-            <i class="fas fa-chart-bar"></i>
-            <span class="nav-item">Projects</span>
-          </a></li>
-          <li><a href="#">
-            <i class="fas fa-tasks"></i>
-            <span class="nav-item"> Contact Us</span>
-          </a></li>
-         
-          <li><a href="#">
-            <i class="fas fa-question-circle"></i>
-            <span class="nav-item">Help</span>
-          </a></li>
-          <li><a href="#" class="logout">
-            <i class="fas fa-sign-out-alt"></i>
-            <span class="nav-item">Logout</span>
-          </a></li>
-        </ul>
-      </div>
-    </nav>
-    <section class="main">
-      <div class="main-top">
-        <p>Account settings </p>
-      </div>
-      
-        <div class="card overflow-hidden">
-          <div class="row no-gutters row-bordered row-border-light">
-            <div class="col-md-9">
-              <div class="tab-content">
-                <div class="tab-pane fade active show" id="account-general">
-                    <div class="card-body media align-items-center">
-                        <img src="https://th.bing.com/th/id/OIP.uAwT2i7H0G9UToXLK7-S7wHaHa?w=209&h=209&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Profile Photo"
-                            class="d-block ui-w-80" style="width: 100px; height: 100px;">
-                        <div class="media-body ml-2">
-                            <label class="btn btn-outline-primary" style="font-size: 15px;">
-                                Upload new photo
-                                <input type="file" class="account-settings-fileinput" style="display: none;">
-                            </label> &nbsp;
-                            <button type="button" class="btn btn-default md-btn-flat" style="font-size: 15px;">Reset</button>
+
+    <div class="container">
+        <nav>
+            <ul>
+                <li>
+                    <a class="logo" href="#">
+                        <img src="https://th.bing.com/th/id/OIP.Ct51VNaAOyQV9w6TBVJDjAHaH9?w=161&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+                        <span class="nav-item">Tiny Tasker</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/profile">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-wallet"></i>
+                        <span class="nav-item">Projects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-question"></i>
+                        <span class="nav-item">Contact us</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/helping">
+                        <i class="fas fa-question-circle"></i>
+                        <span class="nav-item">Help</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <section class="main">
+            <div class="main-top">
+                <i class="fas fa-sign-out-alt">Log out</i>
+            </div>
+
+            <section class="main-course">
+                <div class="course-box">
+                    <h2>Account settings</h2>
+                </div>
+            </section>
+
+            <div class="card overflow-hidden">
+                <div class="row no-gutters row-bordered row-border-light">
+                    <div class="col-md-9">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active show" id="account-general">
+                                <div class="card-body media align-items-center">
+                                    <img src="https://th.bing.com/th/id/OIP.uAwT2i7H0G9UToXLK7-S7wHaHa?w=209&h=209&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                                        alt="Profile Photo" class="d-block ui-w-80" style="width: 100px; height: 100px;">
+                                    <div class="media-body ml-2">
+                                        <label class="btn btn-outline-primary" style="font-size: 15px;">
+                                            Upload new photo
+                                            <input type="file" class="account-settings-fileinput" style="display: none;">
+                                        </label> &nbsp;
+                                        <button type="button" class="btn btn-default md-btn-flat"
+                                            style="font-size: 15px;">Reset</button>
+                                    </div>
+                                </div>
+
+                                <hr class="border-light m-0">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label class="form-label">Username</label>
+                                        <input type="text" class="form-control mb-1" value="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">E-mail</label>
+                                        <input type="text" class="form-control mb-1" value="name@mail.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Project</label>
+                                        <input type="text" class="form-control" value="xxxxxxxxxx">
+                                    </div>
+                                    <!-- Save Changes Button -->
+                                    <button type="button" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                    
-                  
-                    <hr class="border-light m-0">
-                  <div class="card-body">
-                    <div class="form-group">
-                      <label class="form-label">Username</label>
-                      <input type="text" class="form-control mb-1" value="name">
-                    </div>
-                    <div class="form-group">
-                      <label class="form-label">E-mail</label>
-                      <input type="text" class="form-control mb-1" value="name@mail.com">
-                    </div>
-                    <div class="form-group">
-                      <label class="form-label">Project</label>
-                      <input type="text" class="form-control" value="xxxxxxxxxx">
-                    </div>
-                  </div>
-                </div>            
-              </div>
+                </div>
             </div>
-          </div>
-        </div>
-      
-    </section>
+        </section>
+    </div>
 
-  </div>
-  
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
