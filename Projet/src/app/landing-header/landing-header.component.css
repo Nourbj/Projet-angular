@@ -62,7 +62,7 @@ header .container {
     display: inline;
     padding: 0.9rem 1.9rem;
     color:black;
-    background-color: #c399b6;
+    background-color: #eba6cc;
     border-radius: 16px;
     transition: 0.3s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
@@ -72,3 +72,4 @@ header .container {
     transform: scale(1) !important;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
