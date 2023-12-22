@@ -7,7 +7,6 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ContactComponent } from './contact/contact.component';
 import { HelpingComponent } from './helping/helping.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { HelpingComponent } from './helping/helping.component';
     LoginComponent,
     SidebarComponent,
     ProfileComponent,
-    ContactComponent,
     HelpingComponent,
   ],
   imports: [
