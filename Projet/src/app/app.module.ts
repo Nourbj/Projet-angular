@@ -10,6 +10,12 @@ import { LandingContainerComponent } from './landing-container/landing-container
 import { FooterComponent } from './footer/footer.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -20,13 +26,19 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     LandingContainerComponent,
     FooterComponent,
     ContactusComponent,
-    AboutusComponent
+    AboutusComponent,
+    ProjectsComponent,
+    DashboardHeaderComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
