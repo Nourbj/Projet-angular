@@ -15,6 +15,7 @@ landing-img1-color : beige : #f9f3ed
 
 background: linear-gradient(to right, #9c83f7, #fbe4a5);
 
+<!-- <i class="fi fi-rr-settings-sliders"></i> -->
 
 
 <div class="hamburger-menu">
@@ -41,3 +42,6 @@ background: linear-gradient(to right, #9c83f7, #fbe4a5);
   border-radius: 3px;
   transition: 0.5s;
 } */
+
+
+
