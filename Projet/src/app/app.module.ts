@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HelpingComponent } from './helping/helping.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { FooterComponent } from './footer/footer.component';
+import { LandingContainerComponent } from './landing-container/landing-container.component';
+import { LandingHeaderComponent } from './landing-header/landing-header.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+
 
 @NgModule({
   declarations: [
@@ -13,6 +21,13 @@ import { HelpingComponent } from './helping/helping.component';
     SidebarComponent,
     ProfileComponent,
     HelpingComponent,
+    AboutusComponent,
+    ContactusComponent,
+    FooterComponent,
+    LandingContainerComponent,
+    LandingHeaderComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
