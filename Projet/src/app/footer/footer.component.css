@@ -1,0 +1,16 @@
+.footer {
+    position: relative;
+    width: 93%;
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.footer p {
+    font-size: smaller;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4.5rem;
+}
