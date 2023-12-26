@@ -7,6 +7,9 @@ import { LandingContainerComponent } from './landing-container/landing-container
 import { FooterComponent } from './footer/footer.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HelpingComponent } from './helping/helping.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -16,6 +19,9 @@ const routes: Routes = [
   { path: 'footer', component: FooterComponent},
   { path: 'contact-us', component: ContactusComponent},
   { path: 'about-us', component: AboutusComponent},
+  { path: 'sidebar', component: SidebarComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'helping', component: HelpingComponent },
 ];
 
 @NgModule({

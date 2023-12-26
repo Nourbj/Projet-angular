@@ -13,7 +13,9 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HelpingComponent } from './helping/helping.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     ContactusComponent,
     AboutusComponent,
     ProjectsComponent,
+    SidebarComponent,
+    ProfileComponent,
+    HelpingComponent,
   ],
   imports: [
     BrowserModule,
