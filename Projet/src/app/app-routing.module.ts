@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'landing-container', component: LandingContainerComponent},
   { path: 'footer', component: FooterComponent},
   { path: 'contact-us', component: ContactusComponent},
-  { path: 'about-us', component: AboutusComponent}
+  { path: 'about-us', component: AboutusComponent},
 ];
 
 @NgModule({

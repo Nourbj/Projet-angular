@@ -11,8 +11,6 @@ import { FooterComponent } from './footer/footer.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -28,8 +26,6 @@ import { HttpClientModule } from '@angular/common/http';
     ContactusComponent,
     AboutusComponent,
     ProjectsComponent,
-    DashboardHeaderComponent,
-    DashboardComponent
   ],
   imports: [
     BrowserModule,
