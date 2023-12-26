@@ -9,7 +9,6 @@ import { LandingHeaderComponent } from './landing-header/landing-header.componen
 import { LandingContainerComponent } from './landing-container/landing-container.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactusComponent } from './contactus/contactus.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,7 +25,6 @@ import { HelpingComponent } from './helping/helping.component';
     LandingContainerComponent,
     FooterComponent,
     ContactusComponent,
-    AboutusComponent,
     ProjectsComponent,
     SidebarComponent,
     ProfileComponent,
