@@ -1,0 +1,40 @@
+<div class="header"> 
+  <div class="course-box">
+      <h2>Projects</h2>
+  </div>
+</div>
+
+<div class="container">
+    <table class="align-middle mb-0 bg-white">
+        <thead class="bg-light">
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Lead</th>
+                <th></th>
+            </tr>
+        </thead>
+        <ul class="nav nav-pills flex-column mb-auto"></ul>
+        <tbody>
+            <tr *ngFor="let project of projects">
+              <td><button class="project-name-btn" (click)="navigateToTasks(project.id)">{{ project.name }}</button></td>
+              <td>{{ project.category }}</td>
+              <td class="status">
+                <span [class]="'badge badge-' + getStatusColor(project.status) + ' rounded-pill d-inline'">
+                  {{ project.status }}
+                </span>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img [src]="project.avatar" class="rounded-circle" />
+                  <span class="ms-3">{{ project.lead }}</span>
+                </div>
+              </td>
+              <td class="td-btn">
+                <button type="button" class="btn btn-link btn-sm" (click)="navigateToSettings(project.id)">EDIT</button>
+              </td>
+            </tr>
+          </tbody>
+    </table>
+</div>
