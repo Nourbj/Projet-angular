@@ -9,6 +9,10 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HelpingComponent } from './helping/helping.component';
+import { HomeComponent } from './home/home.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -20,6 +24,10 @@ const routes: Routes = [
   { path: 'sidebar', component: SidebarComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'helping', component: HelpingComponent },
+  { path: 'home', component: HomeComponent},
+  { path: 'projects', component: ProjectsComponent},
+  { path: 'tasks/:projectId', component: TasksComponent}, 
+  { path: 'settings/:projectId', component: EditProjectComponent}
 ];
 
 @NgModule({

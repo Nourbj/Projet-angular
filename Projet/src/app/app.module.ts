@@ -15,6 +15,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HelpingComponent } from './helping/helping.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,10 @@ import { HelpingComponent } from './helping/helping.component';
     SidebarComponent,
     ProfileComponent,
     HelpingComponent,
+    DashboardComponent,
+    HomeComponent,
+    TasksComponent,
+    EditProjectComponent,
   ],
   imports: [
     BrowserModule,
