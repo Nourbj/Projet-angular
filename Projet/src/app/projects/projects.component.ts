@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
@@ -46,4 +47,15 @@ export class ProjectsComponent {
         return 'secondary';
     }
   }
+
+  constructor(private router: Router) {}
+
+  navigateToTasks(projectId: number): void {
+    this.router.navigate(['/tasks', projectId]);
+  }
+
+  navigateToSettings(projectId: number): void {
+    this.router.navigate(['/settings', projectId]);
+  }
+
 }

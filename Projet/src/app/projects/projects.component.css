@@ -1,10 +1,32 @@
+.course-box {
+    width: 100%;
+    margin: auto;
+    height: 2rem;
+    padding: 0 3rem;
+    border-radius: 16px;
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #0000001a;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+  
+.course-box h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(17, 17, 17);
+    margin-bottom: 1px;
+    margin-top: 0;
+}
+
 .container {
     position: relative;
-    width: 87%;
-    margin: auto;
+    width: 100%;
     height: relative;
-    min-height: 28rem;
-    padding: 0 3rem;
+    min-height: 27rem;
     border-radius: 16px;
     display: flex;
     background-color: white;
@@ -14,6 +36,7 @@
 }
 
 table {
+    padding-left: 5rem;
     margin-top: 2rem;
     display: block;
     width: 100%;
@@ -25,29 +48,37 @@ caption {
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
     font-size: small;
-    margin-left: -69rem;
+    
 }
 
 th {
     padding-bottom: .5rem;
-    padding-right: 12rem;
+    padding-right: 8rem;
     font-weight: bold;
     font-family: 'Rubik', sans-serif;
 }
 
 td {
+    padding-right: 2rem;
     padding-bottom: 1rem;
     font-weight: 400 !important;
 }
 
-td a {
+td .project-name-btn {
+    background-color: #ffff;
     color: black;
     display: inline-block;
     transition: 0.3s;
+    font-size: medium;
 }
 
-td a:hover {
+td .project-name-btn:hover {
     transform: scale(1.05);
+}
+
+.status {
+    padding-right: 5rem;
+    padding-left: 2rem;
 }
 
 .rounded-circle {
@@ -122,15 +153,3 @@ button:hover {
     transform: scale(1.05);
     color: #3b71ca;
 }
-
-
-/* .btn-link {
-    --mdb-btn-font-weight: 500;
-    --mdb-btn-color: #3b71ca;
-    --mdb-btn-hover-color: #386bc0;
-    --mdb-btn-hover-bg: hsl(0, 0%, 96%);
-    --mdb-btn-focus-color: #3566b6;
-    --mdb-btn-active-color: #3260ac;
-    text-decoration: none;
-    box-shadow: none;
-}  */
