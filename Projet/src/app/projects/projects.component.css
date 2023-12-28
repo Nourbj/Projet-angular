@@ -131,6 +131,8 @@ img {
 button {
     cursor: pointer;
     outline: 0;
+    border-color: #ffff;
+    border-style: none;
 }
 
 
