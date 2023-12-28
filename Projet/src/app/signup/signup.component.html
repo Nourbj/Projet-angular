@@ -7,20 +7,19 @@
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="username" required>
+        <input type="text" id="username" name="username" placeholder="username" [(ngModel)]="username" required>
       </div>
-
+    
       <div class="form-group">
         <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="email address" required>
+        <input type="email" id="email" name="email" placeholder="email address" [(ngModel)]="email" required>
       </div>
-
+    
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="***" required>
+        <input type="password" id="password" name="password" placeholder="***" [(ngModel)]="password" required>
       </div>
-
+    
       <button type="submit">Sign up</button>
     </form>
-  </div>
-</div>
+    
