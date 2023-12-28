@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
         (response: any) => {
           console.log('Signup successful:', response);
           // Gérer la réponse réussie, rediriger vers la page /sidebar, etc.
-          this.router.navigate(['/sidebar']);
+          this.router.navigate(['/dashboard']);
         },
         (error) => {
           console.error('Signup failed:', error);

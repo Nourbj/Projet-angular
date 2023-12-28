@@ -50,7 +50,7 @@ export class LoginComponent {
         (response: any) => {
           console.log('Login successful:', response);
           // Handle successful login, navigate to "/sidebar"
-          this.router.navigate(['/sidebar']); // Replace with the actual route
+          this.router.navigate(['/dashboard']); // Replace with the actual route
         },
         () => { },
         () => {
