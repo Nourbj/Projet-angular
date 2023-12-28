@@ -51,11 +51,11 @@ export class ProjectsComponent {
   constructor(private router: Router) {}
 
   navigateToTasks(projectId: number): void {
-    this.router.navigate(['/tasks', projectId]);
+    this.router.navigate(['/dashboard/tasks', projectId]);
   }
 
   navigateToSettings(projectId: number): void {
-    this.router.navigate(['/settings', projectId]);
+    this.router.navigate(['/dashboard/settings', projectId]);
   }
 
 }
