@@ -17,9 +17,17 @@
     width: 100%;
 }
 
-.content-top i {
+.content-top .logout {
     position: absolute;
     right: 0;
+    margin: 10px 30px;
+    color: rgb(110, 109, 109);
+    cursor: pointer;
+}
+
+.content-top .create-project {
+    position: absolute;
+    right: 10;
     margin: 10px 30px;
     color: rgb(110, 109, 109);
     cursor: pointer;
@@ -29,4 +37,3 @@
     margin-top: 50px ;
     text-transform: capitalize;
 }
-
