@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { CreateProjectComponent } from './create-project/create-project.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     TasksComponent,
     EditProjectComponent,
     LandingPageComponent,
+    CreateProjectComponent,
   ],
   imports: [
     BrowserModule,
