@@ -12,7 +12,10 @@ export class DashboardComponent {
   constructor(private router: Router) {}
 
   logout(): void {
-    
     this.router.navigate(['/landing']);
-}
+  }
+
+  create() : void {
+    this.router.navigate(['/dashboard/create-project']);
+  }
 }
