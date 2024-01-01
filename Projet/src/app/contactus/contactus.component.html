@@ -1,26 +1,26 @@
 <div class="landing-container">
-    <div class="contactus-container">
-      <div class="intro-text">
-        <h2>Feedback</h2>
-      </div>
-  
-      <form (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="email address" required>
-        </div>
-  
-        <div class="form-group">
-          <label for="object">Object</label>
-          <input type="text" id="object" name="object" placeholder="object" required>
-        </div>
-  
-        <div class="form-group">
-            <label for="subject">Subject</label>
-            <textarea id="subject" name="subject" placeholder="write something" style="height:200px" required></textarea>
-        </div>
-  
-        <button type="submit">Send</button>
-      </form>
+  <div class="contactus-container">
+    <div class="intro-text">
+      <h2>Feedback</h2>
     </div>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="email address" required>
+      </div>
+
+      <div class="form-group">
+        <label for="object">Object</label>
+        <input type="text" id="object" name="object" [(ngModel)]="object" placeholder="object" required>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" [(ngModel)]="subject" placeholder="write something" style="height:200px" required></textarea>
+      </div>
+
+      <button type="submit">Send</button>
+    </form>
   </div>
+</div>
