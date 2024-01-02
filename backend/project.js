@@ -8,13 +8,12 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/projet', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true 
-}) .then( () => {
-    console.log('connected to mongodb'); 
-}) .catch( (error) => {
-    console.error('error connecting to mongodb: ', error);
+mongoose.connect("mongodb://127.0.0.1:27017/projet");
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Connection error:'));
+db.once('open', function () {
+    console.log('DB Connected successfully!');
 });
 
 
@@ -30,15 +29,16 @@ const Project = mongoose.model('Project', projectSchema);
 module.exports = Project;
 
 app.post('/create-project', async (req, res) => {
-    try {
+  try {
       const projectData = new Project(req.body);
       const savedProject = await projectData.save();
+      console.log('Project data received:', req.body);
       console.log('Project saved:', savedProject);
       res.json(savedProject);
-    } catch (error) {
+  } catch (error) {
       console.error('Error creating project:', error);
       res.status(500).json({ error: 'Error creating project', details: error.message });
-    }
+  }
 });
 
 app.get('/get-projects', async (req, res) => {
