@@ -1,0 +1,153 @@
+.course-box {
+    width: 100%;
+    margin: auto;
+    height: 2rem;
+    padding: 0 3rem;
+    border-radius: 16px;
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #0000001a;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+  
+.course-box h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(17, 17, 17);
+    margin-bottom: 1px;
+    margin-top: 0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: relative;
+    min-height: 27rem;
+    border-radius: 16px;
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #0000001a;
+    margin-bottom: 1.5rem;
+}
+
+table {
+    padding-left: 5rem;
+    margin-top: 2rem;
+    display: block;
+    width: 100%;
+}
+
+caption {
+    margin-bottom: 1rem;
+    color: rgb(136, 133, 133);
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: small;
+    
+}
+
+th {
+    padding-bottom: .5rem;
+    padding-right: 2.6rem;
+    font-weight: bold;
+    font-family: 'Rubik', sans-serif;
+}
+
+td {
+    padding-right: 2rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    font-weight: 400 !important;
+}
+
+td .project-name-btn {
+    background-color: #ffff;
+    color: black;
+    display: inline-block;
+    transition: 0.3s;
+    font-size: medium;
+}
+
+td .project-name-btn:hover {
+    transform: scale(1.05);
+}
+
+.rounded-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+img {
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+.badge {
+    --mdb-badge-color: #fff;
+    --mdb-badge-border-radius: 0.27rem;
+    padding: 0.35em 0.65em;
+    font-size: .75em;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+.rounded-pill {
+    border-radius: 50rem !important;
+}
+
+.d-inline {
+    display: inline !important;
+}
+
+
+.badge-success {
+    background-color: #dcf1e4;
+    color: #0c622e;
+}
+
+.badge-primary {
+    background-color: #e2eaf7;
+    color: #2f5aa2;
+}
+
+.badge-waiting {
+    background-color: #fbf1dd;
+    color: #74510c;
+}
+
+button {
+    cursor: pointer;
+    outline: 0;
+    border-color: #ffff;
+    border-style: none;
+}
+
+
+.btn {
+    --mdb-btn-border-width: 0;
+    --mdb-btn-border-color: none;
+    --mdb-btn-box-shadow: 0 4px 9px -4px rgba(0, 0, 0, 0.35);
+    padding-top: 0.625rem;
+    padding-bottom: 0.5rem;
+    vertical-align: bottom;
+    border: 0;
+    border-radius: 16px;
+    box-shadow: none;
+    background-color: #fff;
+    transition: 0.3s;
+    color: #3566b6;
+}
+
+button:hover {
+    transform: scale(1.05);
+    color: #3b71ca;
+}

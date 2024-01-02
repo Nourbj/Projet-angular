@@ -1,1 +1,54 @@
-<p>tasks works!</p>
+<div class="header"> 
+    <div class="course-box">
+        <h2>Tasks</h2>
+    </div>
+  </div>
+  
+  <div class="container">
+      <table class="align-middle mb-0 bg-white">
+          <thead class="bg-light">
+              <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Due Date</th>
+                  <th>Priority</th>
+                  <th>State</th>
+                  <th>Assignee</th>
+                  <th>Owner</th>
+                  <th>Docs</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <ul class="nav nav-pills flex-column mb-auto"></ul>
+          <tbody>
+              <tr *ngFor="let task of tasks">
+                <td><button class="project-name-btn" (click)="seeTask()">{{ task.title }}</button></td>
+                <td>{{ task.category }}</td>
+                <td>{{ task.due_date }}</td>
+                <td>{{ task.priority }}</td>
+                <td class="status">
+                  <span [class]="'badge badge-' + getStateColor(task.state) + ' rounded-pill d-inline'">
+                    {{ task.state }}
+                  </span>
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <span class="ms-3">{{ task.assignee }}</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <span class="ms-3">{{ task.owner }}</span>
+                  </div>
+                </td>
+                <td class="td-btn">
+                  <button type="button" class="btn btn-link btn-sm" (click)="viewDoc()">VIEW</button>
+                </td>
+                <td class="td-btn">
+                  <button type="button" class="btn btn-link btn-sm" (click)="addComment()">COMMENT</button>
+                </td>
+              </tr>
+            </tbody>
+      </table>
+  </div>
+  
