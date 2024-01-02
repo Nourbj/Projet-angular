@@ -18,4 +18,8 @@ export class DashboardComponent {
   create() : void {
     this.router.navigate(['/dashboard/create-project']);
   }
+
+  isProjectsPage(): boolean {
+    return this.router.isActive('/dashboard/projects', false);
+  }
 }
