@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,47 +9,38 @@ import { Router } from '@angular/router';
 })
 export class ProjectsComponent {
 
-  projects = [ 
-    {
-      id: 1, 
-      name: 'Project/Task Manager', 
-      category: 'Web Dev', 
-      status: 'In progress', 
-      lead: 'Hadil Yahiaoui', 
-      avatar: 'https://mdbootstrap.com/img/new/avatars/8.jpg'
-    },
-    {
-      id: 2,
-      name: 'Library Manager', 
-      category: 'Java', 
-      status: 'Not started', 
-      lead: 'Nour Ben Jannena',
-      avatar: 'https://mdbootstrap.com/img/new/avatars/6.jpg'
-    }, 
-    {
-      id: 3, 
-      name: 'Another Project', 
-      category: 'saybouni zah', 
-      status: 'Done', 
-      lead: 'Foulen Ben Foulen',
-      avatar: 'https://mdbootstrap.com/img/new/avatars/7.jpg'
-    }
-  ]
+  projects: any[] = [];
 
   getStatusColor(status: string): string {
     switch (status.toLowerCase()) {
-      case 'done':
+      case 'done' || 2:
         return 'success';
-      case 'in progress':
+      case 'in progress' || 1:
         return 'primary';
-      case 'not started':
+      case 'not started' || 0:
         return 'waiting';
       default:
         return 'secondary';
     }
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.loadProjects();
+  }
+
+  loadProjects(): void {
+    this.http.get<any[]>('http://localhost:3000/get-projects').subscribe(
+      (data) => {
+        this.projects = data;
+        console.log(this.projects);
+      },
+      (error) => {
+        console.error('Error fetching projects:', error);
+      }
+    );
+  }
 
   navigateToTasks(projectId: number): void {
     this.router.navigate(['/dashboard/tasks', projectId]);
