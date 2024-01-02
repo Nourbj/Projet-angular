@@ -43,12 +43,10 @@ function startServer() {
             project: String,
         },
     });
-<<<<<<< HEAD
-    
+
     // Route to handle signup
     app.post('/signup', async (req, res) => {
         const { username, email, password } = req.body;
-=======
 
     const Image = mongoose.model('Image', ImageSchema);
 
@@ -56,8 +54,6 @@ function startServer() {
 // Route to handle signup
 app.post('/signup', async (req, res) => {
     const { username, email, password } = req.body;
->>>>>>> b6edc23bc908e58afff38715c32b2c1a7d26f0ad
-
         try {
             // Hash the password before saving it to the database
             const hashedPassword = await bcrypt.hash(password, 10);
@@ -106,10 +102,9 @@ app.post('/signup', async (req, res) => {
             console.error('Login failed:', error);
             res.status(500).json({ error: 'Login failed' });
         }
-<<<<<<< HEAD
     });
-=======
 
+    try {
         console.log('Login successful');
         res.json({ message: 'Login successful' });
     } catch (error) {
@@ -243,8 +238,6 @@ app.put('/profile', upload.single('photo'), async (req, res) => {
         res.status(500).json({ error: 'Profile update failed' });
     }
 });
-
->>>>>>> b6edc23bc908e58afff38715c32b2c1a7d26f0ad
 
     app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
