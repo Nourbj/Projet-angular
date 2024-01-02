@@ -1,0 +1,30 @@
+<div class="header"> 
+    <div class="course-box">
+        <h2>View Comments</h2>
+    </div>
+  </div>
+  
+  <div class="container">
+      <table class="align-middle mb-0 bg-white">
+          <thead class="bg-light">
+              <tr>
+                  <th>Name</th>
+                  <th>Time</th>
+                  <th>Writer</th>
+              </tr>
+          </thead>
+          <ul class="nav nav-pills flex-column mb-auto"></ul>
+          <tbody>
+              <tr *ngFor="let comment of comments">
+                <td>{{ comment.name }}</td>
+                <td>{{ comment.time }}</td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <span class="ms-3">{{ comment.writer }}</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+      </table>
+  </div>
+  
