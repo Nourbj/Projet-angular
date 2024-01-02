@@ -155,3 +155,8 @@ button:hover {
     transform: scale(1.05);
     color: #3b71ca;
 }
+
+
+.btn-space {
+    margin-left: 10px; /* Ajustez la valeur selon votre préférence pour l'espace entre les boutons */
+  }

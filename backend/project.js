@@ -20,8 +20,7 @@ db.once('open', function () {
 const projectSchema = new mongoose.Schema ({
     name: String,
     category: String,
-    status: Number,
-    lead: String,
+    
     description: String
 });
 

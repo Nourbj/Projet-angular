@@ -1,46 +1,26 @@
-<div class="header"> 
+<div class="header">
     <div class="course-box">
-        <h2>Create New Project</h2>
+      <h2>Create New Project</h2>
     </div>
-</div>
-
-<div class="card overflow-hidden">
+  </div>
+  
+  <div class="card overflow-hidden">
     <form (ngSubmit)="createProject()">
-        <div class="form-group">
-          <label for="project-name" class="form-label">Project Name</label>
-          <input type="text" class="form-control mb-1" placeholder="Project Name" required [(ngModel)]="project.name" name="name">
-        </div>
-    
-        <div class="form-group">
-          <label for="Category" class="form-label">Category</label>
-          <input type="text" class="form-control mb-1" placeholder="Category" required [(ngModel)]="project.category" name="category">
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Status</label>
-            <select name="status" id="status" [(ngModel)]="project.status" name="status">
-                <option value="0">Not Started</option>
-                <option value="1">In progress</option>
-                <option value="2">Done</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Lead</label>
-            <select name="lead" id="lead" [(ngModel)]="project.lead" name="lead">
-                <option value="empty">Project Lead</option>
-                <option value="p1">Hadil Yahiaoui</option>
-                <option value="p3">Nour Ben Jannena</option>
-                <option value="p3">Foulen Ben Foulen</option>
-            </select>
-        </div>
-    
-        <div class="form-group">
-            <label for="description" class="form-label">Project Description</label>
-            <textarea id="description" name="description" placeholder="Project Description" style="height:50px" [(ngModel)]="project.description" name="description" required></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Create Project</button>
+      <div class="form-group">
+        <label for="project-name" class="form-label">Project Name</label>
+        <input type="text" class="form-control mb-1" placeholder="Project Name" required [(ngModel)]="project.name" name="name">
+      </div>
+  
+      <div class="form-group">
+        <label for="Category" class="form-label">Category</label>
+        <input type="text" class="form-control mb-1" placeholder="Category" required [(ngModel)]="project.category" name="category">
+      </div>
+  
+      <div class="form-group">
+        <label for="description" class="form-label">Project Description</label>
+        <textarea id="description" name="description" placeholder="Project Description" style="height:50px" [(ngModel)]="project.description" name="description" required></textarea>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Create Project</button>
     </form>
-</div>
-
+  </div>
