@@ -53,14 +53,13 @@ caption {
 
 th {
     padding-bottom: .5rem;
-    padding-right: 2.6rem;
+    padding-right: 8rem;
     font-weight: bold;
     font-family: 'Rubik', sans-serif;
 }
 
 td {
     padding-right: 2rem;
-    padding-left: 1rem;
     padding-bottom: 1rem;
     font-weight: 400 !important;
 }
@@ -75,6 +74,11 @@ td .project-name-btn {
 
 td .project-name-btn:hover {
     transform: scale(1.05);
+}
+
+.status {
+    padding-right: 5rem;
+    padding-left: 2rem;
 }
 
 .rounded-circle {
@@ -151,3 +155,8 @@ button:hover {
     transform: scale(1.05);
     color: #3b71ca;
 }
+
+
+.btn-space {
+    margin-left: 10px; /* Ajustez la valeur selon votre préférence pour l'espace entre les boutons */
+  }

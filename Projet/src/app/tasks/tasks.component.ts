@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tasks',
@@ -9,33 +10,9 @@ import { Router } from '@angular/router';
 })
 export class TasksComponent {
 
-  tasks = [
-    {
-      id : 1,
-      title : "task1",
-      category: "web",
-      due_date : "12-01-2024",
-      priority : "important",
-      state : "not started",
-      assignee : "nour",
-      owner : "hadil"
-    }
-  ]
+  tasks: any[] = [];
 
-  getStateColor(status: string): string {
-    switch (status.toLowerCase()) {
-      case 'done' || 2:
-        return 'success';
-      case 'in progress' || 1:
-        return 'primary';
-      case 'not started' || 0:
-        return 'waiting';
-      default:
-        return 'secondary';
-    }
-  }
-
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.loadTasks();
@@ -53,15 +30,16 @@ export class TasksComponent {
     );
   }
 
-  seeTask(): void {
-    this.router.navigate(['/dashboard/task-details']);
+  navigateToTaskDetails(taskId: string): void {
+    const projectId = this.route.snapshot.paramMap.get('projectId');
+    this.router.navigate(['/dashboard', projectId, taskId, 'task-details']);
   }
 
-  addComment(): void {
+  navigateToComment(): void {
     this.router.navigate(['/dashboard/comment']);
   }
 
-  viewDoc(): void {
+  navigateToDocs(): void {
     this.router.navigate(['/dashboard/view-doc']);
   }
 
