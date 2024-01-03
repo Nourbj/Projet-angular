@@ -18,6 +18,8 @@ import { CreateProjectComponent } from './create-project/create-project.componen
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { ViewDocComponent } from './view-doc/view-doc.component';
 import { CommentsComponent } from './comments/comments.component';
+import { CreateTaskComponent } from './create-task/create-task.component';
+import { CreateCommentComponent } from './create-comment/create-comment.component';
 
 
 const routes: Routes = [
@@ -42,12 +44,14 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'helping', component: HelpingComponent },
       { path: 'projects', component: ProjectsComponent}, 
-      { path: 'settings/:projectId', component: EditProjectComponent},
       { path: 'create-project', component: CreateProjectComponent},
-      { path: 'tasks', component: TasksComponent},
-      { path: 'task-details', component: TaskDetailComponent},
+      { path: 'settings/:projectId', component: EditProjectComponent},
+      { path: ':projectId/tasks', component: TasksComponent},
+      { path: ':projectId/:taskId/task-details', component: TaskDetailComponent},
+      { path: 'create-task', component: CreateTaskComponent},
       { path: 'view-doc', component: ViewDocComponent},
-      { path: 'comment', component: CommentsComponent}
+      { path: 'comment', component: CommentsComponent},
+      { path: 'create-comment', component: CreateCommentComponent}
     ]
   }
 ];
