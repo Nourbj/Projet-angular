@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
 
   projects: any[] = [];
 
@@ -24,11 +24,17 @@ export class ProjectsComponent {
     }
   }
 
-  constructor(private router: Router, private http: HttpClient) {}
-
-  ngOnInit(): void {
-    this.loadProjects();
-  }
+  
+  
+    constructor(
+      private router: Router,
+      private http: HttpClient,
+      private route: ActivatedRoute
+    ) {}
+  
+    ngOnInit(): void {
+      this.loadProjects();
+    }
 
   loadProjects(): void {
     this.http.get<any[]>('http://localhost:3000/get-projects').subscribe(
@@ -49,5 +55,18 @@ export class ProjectsComponent {
   navigateToSettings(): void {
     this.router.navigate(['/dashboard/settings']);
   }
-
+  deleteProject(projectId: string): void {
+    const confirmation = window.confirm('Are you sure you want to delete this project?');
+    if (confirmation) {
+      this.http.delete(`http://localhost:3000/delete-project/${projectId}`).subscribe(
+        () => {
+          console.log('Project deleted successfully.');
+          this.loadProjects(); // Rechargez la liste des projets après la suppression
+        },
+        (error) => {
+          console.error('Error deleting project:', error);
+        }
+      );
+    }
+  }
 }

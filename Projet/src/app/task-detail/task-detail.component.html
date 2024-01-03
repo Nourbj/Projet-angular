@@ -4,60 +4,33 @@
     </div>
 </div>
 
-<div class="card overflow-hidden">
-    <div class="card-body">
-        <div class="form-group">
-            <label class="form-label">Task Title</label>
-            <input type="text" class="form-control mb-1" value="Task Title">
-        </div>
-        <div class="form-group">
-            <label class="form-label">Category</label>
-            <input type="text" class="form-control mb-1" value="category">
-        </div>
-        <div class="form-group">
-            <label class="form-label">Description</label>
-            <input type="text" class="form-control mb-1" value="Description">
-        </div>
-        <div class="form-group">
-            <label class="form-label">Due Date</label>
-            <input type="text" class="form-control mb-1" value="dd-mm-yyyy">
-        </div>
-        <div class="form-group">
-            <label class="form-label">Priority</label>
-            <select name="priority" id="priority">
-                <option value="empty">Task Priority</option>
-                <option value="waiting">Important</option>
-                <option value="in-progress">Medium</option>
-                <option value="done">Basic</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-label">Status</label>
-            <select name="status" id="status">
-                <option value="empty">Project Status</option>
-                <option value="waiting">Not Started</option>
-                <option value="in-progress">In progress</option>
-                <option value="done">Done</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-label">Owner</label>
-            <select name="owner" id="owner">
-                <option value="empty">Task Owner</option>
-                <option value="p1">Hadil Yahiaoui</option>
-                <option value="p2">Nour Ben Jannena</option>
-                <option value="p3">Foulen Ben Foulen</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-label">Assignee</label>
-            <select name="owner" id="owner">
-                <option value="empty">Task Assignee</option>
-                <option value="p1">Hadil Yahiaoui</option>
-                <option value="p2">Nour Ben Jannena</option>
-                <option value="p3">Foulen Ben Foulen</option>
-            </select>
-        </div>
-        <button type="button" class="btn btn-primary">Save Changes</button>
-    </div>
-</div>
+<div class="container">
+    <table class="align-middle mb-0 bg-white">
+      <thead class="bg-light">
+        <tr>
+          
+          <th>Priority</th>
+          <th>State</th>
+          <th>assignee</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td><button class="project-name-btn">{{ task.priority }}</button></td>
+          <td>{{ task.state }}</td>
+          <td>{{ task.assignee }}</td>
+          <td class="td-btn">
+            <button type="button" class="btn btn-link btn-sm" (click)="navigateToDocs()">VIEW DOCS</button>
+            <span class="btn-space"></span> <!-- Ajout de l'espace -->
+            <button type="button" class="btn btn-link btn-sm" (click)="navigateToComment()">COMMENT</button>
+            <span class="btn-space"></span> <!-- Ajout de l'espace -->
+  
+            <button type="button" class="btn btn-link btn-sm">UPDATE </button>
+              <span class="btn-space"></span> <!-- Ajout de l'espace -->
+              <button type="button" class="btn btn-link btn-sm" (click)="deleteTask()">DELETE</button>
+            
+        </tr>
+      </tbody>
+    </table>
+  </div>

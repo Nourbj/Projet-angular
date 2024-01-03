@@ -51,6 +51,45 @@ app.get('/get-projects', async (req, res) => {
 });
 
 
+// Suppression d'un projet
+app.delete('/delete-project/:projectId', async (req, res) => {
+  const projectId = req.params.projectId;
+
+  try {
+    console.log('Deleting project with ID:', projectId);
+
+    // Vérifiez si projectId est un ObjectId valide
+    if (!mongoose.Types.ObjectId.isValid(projectId)) {
+      console.log('Invalid project ID');
+      return res.status(400).json({ error: 'Invalid project ID' });
+    }
+
+    // Trouvez et supprimez le projet
+    const deletedProject = await Project.findByIdAndDelete(projectId);
+
+    if (!deletedProject) {
+      console.log('Project not found');
+      return res.status(404).json({ error: 'Project not found' });
+    }
+
+    console.log('Project deleted successfully');
+    res.status(200).json({ message: 'Project deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting project:', error);
+    res.status(500).json({ error: 'Error deleting project', details: error.message });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
 
 // Task CRUD
 const taskSchema = new mongoose.Schema({
@@ -89,6 +128,43 @@ app.get('/get-tasks', async (req, res) => {
     res.status(500).json({ error: 'Error fetching tasks', details: error.message });
   }
 });
+
+
+
+
+app.delete('/delete-task/:taskId', async (req, res) => {
+  const taskId = req.params.taskId;
+
+  try {
+    console.log('Deleting task with ID:', taskId);
+
+    // Check if taskId is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(taskId)) {
+      console.log('Invalid task ID');
+      return res.status(400).json({ error: 'Invalid task ID' });
+    }
+
+    // Find and delete the task
+    const deletedTask = await Task.findByIdAndDelete(taskId);
+
+    if (!deletedTask) {
+      console.log('Task not found');
+      return res.status(404).json({ error: 'Task not found' });
+    }
+
+    console.log('Task deleted successfully');
+    res.status(200).json({ message: 'Task deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting task:', error);
+    res.status(500).json({ error: 'Error deleting task', details: error.message });
+  }
+});
+
+
+
+
+
+
 
 
 

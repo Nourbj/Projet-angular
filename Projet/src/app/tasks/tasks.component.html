@@ -11,6 +11,11 @@
         <th>Name</th>
         <th>Category</th>
         <th>Description</th>
+        <th>Due-Date</th>
+        <th>owner</th>
+        
+
+
         <th></th>
       </tr>
     </thead>
@@ -19,11 +24,12 @@
         <td><button class="project-name-btn" (click)="navigateToTaskDetails(task._id)">{{ task.title }}</button></td>
         <td>{{ task.category }}</td>
         <td>{{ task.description }}</td>
-        <td class="td-btn">
-          <button type="button" class="btn btn-link btn-sm" (click)="navigateToDocs()">VIEW DOCS</button>
-          <span class="btn-space"></span> <!-- Ajout de l'espace -->
-          <button type="button" class="btn btn-link btn-sm" (click)="navigateToComment()">COMMENT</button>
-        </td>
+        <td>{{ task.due_date }}</td>
+        <td>{{ task.owner }}</td>
+
+
+       
+          
       </tr>
     </tbody>
   </table>

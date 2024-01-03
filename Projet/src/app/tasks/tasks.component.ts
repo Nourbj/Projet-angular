@@ -43,4 +43,5 @@ export class TasksComponent {
     this.router.navigate(['/dashboard/view-doc']);
   }
 
+  
 }
