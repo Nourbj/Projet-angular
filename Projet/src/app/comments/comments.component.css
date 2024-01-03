@@ -36,7 +36,7 @@
 }
 
 table {
-    padding-left: 4rem;
+    padding-left: 5rem;
     margin-top: 2rem;
     display: block;
     width: 100%;
@@ -53,7 +53,6 @@ caption {
 
 th {
     padding-bottom: .5rem;
-    padding-left: 5rem;
     padding-right: 8rem;
     font-weight: bold;
     font-family: 'Rubik', sans-serif;
@@ -61,7 +60,6 @@ th {
 
 td {
     padding-right: 2rem;
-    padding-left: 5.5rem;
     padding-bottom: 1rem;
     font-weight: 400 !important;
 }
@@ -76,6 +74,22 @@ td .project-name-btn {
 
 td .project-name-btn:hover {
     transform: scale(1.05);
+}
+
+.status {
+    padding-right: 5rem;
+    padding-left: 2rem;
+}
+
+.rounded-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+img {
+    vertical-align: middle;
+    margin-right: 0.5rem;
 }
 
 .badge {
@@ -96,6 +110,22 @@ td .project-name-btn:hover {
 
 .d-inline {
     display: inline !important;
+}
+
+
+.badge-success {
+    background-color: #dcf1e4;
+    color: #0c622e;
+}
+
+.badge-primary {
+    background-color: #e2eaf7;
+    color: #2f5aa2;
+}
+
+.badge-waiting {
+    background-color: #fbf1dd;
+    color: #74510c;
 }
 
 button {
@@ -125,3 +155,8 @@ button:hover {
     transform: scale(1.05);
     color: #3b71ca;
 }
+
+
+.btn-space {
+    margin-left: 10px; /* Ajustez la valeur selon votre préférence pour l'espace entre les boutons */
+  }

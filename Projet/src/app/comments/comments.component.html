@@ -1,30 +1,30 @@
-<div class="header"> 
-    <div class="course-box">
-        <h2>View Comments</h2>
-    </div>
+<div class="header">
+  <div class="course-box">
+    <h2>View Comments</h2>
   </div>
-  
-  <div class="container">
-      <table class="align-middle mb-0 bg-white">
-          <thead class="bg-light">
-              <tr>
-                  <th>Name</th>
-                  <th>Time</th>
-                  <th>Writer</th>
-              </tr>
-          </thead>
-          <ul class="nav nav-pills flex-column mb-auto"></ul>
-          <tbody>
-              <tr *ngFor="let comment of comments">
-                <td>{{ comment.name }}</td>
-                <td>{{ comment.time }}</td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="ms-3">{{ comment.writer }}</span>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-      </table>
-  </div>
-  
+</div>
+
+<div class="container">
+  <table class="align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th>Message</th>
+        <th>Time</th>
+        <th>Writer</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let comment of comments">
+        <td>{{ comment.message }}</td>
+        <td>{{ comment.time }}</td>
+        <td>{{ comment.writer }}</td>
+        <td class="td-btn">
+          <button type="button" class="btn btn-link btn-sm" (click)="navigateToSettings()">EDIT</button>
+          <span class="btn-space"></span> <!-- Ajout de l'espace -->
+          <button type="button" class="btn btn-link btn-sm">DELETE</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
