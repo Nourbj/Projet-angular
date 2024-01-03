@@ -160,3 +160,27 @@ button:hover {
 .btn-space {
    margin-left: 10px; /* Ajustez la valeur selon votre préférence pour l'espace entre les boutons */
  }
+ .task-details {
+   display: flex;
+   flex-direction: column;
+ }
+ 
+ .task-row {
+   display: flex;
+   align-items: center;
+ }
+ 
+ .column {
+   margin-right: 10px; /* Ajoutez une marge entre les colonnes si nécessaire */
+ }
+ 
+ .column-label {
+   font-weight: bold;
+   margin-right: 5px; /* Ajoutez une marge entre le libellé de la colonne et la valeur si nécessaire */
+ }
+ 
+ .td-btn {
+   display: flex;
+   gap: 10px; /* Ajoutez une marge entre les boutons si nécessaire */
+ }
+ 

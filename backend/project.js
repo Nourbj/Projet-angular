@@ -162,8 +162,38 @@ app.delete('/delete-task/:taskId', async (req, res) => {
 
 
 
+// Dans votre route de mise à jour des tâches
+app.put('/update-task/:taskId', async (req, res) => {
+  const taskId = req.params.taskId;
+  const updatedTaskData = req.body;
 
+  try {
+    console.log('Received PUT request for task ID:', taskId);
 
+    // Ajoutez un log pour voir les données mises à jour
+    console.log('Updated task data:', updatedTaskData);
+
+    // Vérifiez si taskId est un ObjectId valide
+    if (!mongoose.Types.ObjectId.isValid(taskId)) {
+      console.log('Invalid task ID');
+      return res.status(400).json({ error: 'Invalid task ID' });
+    }
+
+    // Ajoutez un log pour voir si la recherche et la mise à jour fonctionnent
+    const updatedTask = await Task.findByIdAndUpdate(taskId, updatedTaskData, { new: true });
+
+    if (!updatedTask) {
+      console.log('Task not found');
+      return res.status(404).json({ error: 'Task not found' });
+    }
+
+    console.log('Task updated successfully');
+    res.status(200).json(updatedTask);
+  } catch (error) {
+    console.error('Error updating task:', error);
+    res.status(500).json({ error: 'Error updating task', details: error.message });
+  }
+});
 
 
 

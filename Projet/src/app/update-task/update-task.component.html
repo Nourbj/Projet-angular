@@ -1,0 +1,60 @@
+<div class="header">
+    <div class="course-box">
+      <h2>Update Task</h2>
+    </div>
+  </div>
+  
+  <div class="card overflow-hidden">
+    <form class="card-body" (ngSubmit)="updateTask()" #updateForm="ngForm">
+      <div class="form-group">
+        <label class="form-label">Task Title</label>
+        <input type="text" class="form-control mb-1" placeholder="Task Title" required [(ngModel)]="task.title" name="title">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Category</label>
+        <input type="text" class="form-control mb-1" placeholder="Category" required [(ngModel)]="task.category" name="category">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea class="form-control mb-1" placeholder="Description" required [(ngModel)]="task.description" name="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Due Date</label>
+        <input type="date" class="form-control mb-1" required [(ngModel)]="task.due_date" name="due_date">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Priority</label>
+        <select class="form-control" required [(ngModel)]="task.priority" name="priority">
+          <option value="important">Important</option>
+          <option value="medium">Medium</option>
+          <option value="basic">Basic</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">State</label>
+        <select class="form-control" required [(ngModel)]="task.state" name="state">
+          <option value="waiting">Not Started</option>
+          <option value="in-progress">In progress</option>
+          <option value="done">Done</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Owner</label>
+        <select class="form-control" required [(ngModel)]="task.owner" name="owner">
+          <option value="Hadil Yahiaoui">Hadil Yahiaoui</option>
+          <option value="Nour Ben Jannena">Nour Ben Jannena</option>
+          <option value="Foulen Ben Foulen">Foulen Ben Foulen</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Assignee</label>
+        <select class="form-control" required [(ngModel)]="task.assignee" name="assignee">
+          <option value="Hadil Yahiaoui">Hadil Yahiaoui</option>
+          <option value="Nour Ben Jannena">Nour Ben Jannena</option>
+          <option value="Foulen Ben Foulen">Foulen Ben Foulen</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Update Task</button>
+    </form>
+  </div>
+  

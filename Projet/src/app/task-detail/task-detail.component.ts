@@ -73,5 +73,11 @@ import { ActivatedRoute, Router } from '@angular/router';
       );
     }
   }
+  updateTask(): void {
+  console.log('Updating task:', this.tasks);
+
+  // Navigate to the update task page with projectId and taskId
+  this.router.navigate(['/dashboard', this.projectId, this.taskId, 'task-details', 'update-task']);
+}
 
 }

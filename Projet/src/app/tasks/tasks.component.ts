@@ -43,5 +43,8 @@ export class TasksComponent {
     this.router.navigate(['/dashboard/view-doc']);
   }
 
-  
+   showTaskDetails(taskId: string): void {
+    // Naviguer vers les détails de la tâche lorsque le bouton "Show Details" est cliqué
+    this.router.navigate(['/dashboard/:projectId/:taskId/task-details', taskId]);
+  }
 }
