@@ -16,11 +16,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let project of projects">
-        <td><button class="project-name-btn" (click)="navigateToTasks(project.id)">{{ project.name }}</button></td>
+        <td><button class="project-name-btn" (click)="navigateToTasks(project._id)">{{ project.name }}</button></td>
         <td>{{ project.category }}</td>
         <td>{{ project.description }}</td>
         <td class="td-btn">
-          <button type="button" class="btn btn-link btn-sm" (click)="navigateToSettings(project.id)">EDIT</button>
+          <button type="button" class="btn btn-link btn-sm" (click)="navigateToSettings()">EDIT</button>
           <span class="btn-space"></span> <!-- Ajout de l'espace -->
           <button type="button" class="btn btn-link btn-sm" >DELETE</button>
         </td>
