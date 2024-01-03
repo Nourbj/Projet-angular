@@ -6,8 +6,14 @@
         <div class="content-top">
             <i class="logout fas fa-sign-out-alt" (click)="logout()">Log Out</i>
             <ng-container *ngIf="isProjectsPage()">
-                <i class="create-project fa fa-plus-circle" (click)="create()">Create Project</i>
-              </ng-container>        
+                <i class="create-project fa fa-plus-circle" (click)="createProject()">Create Project</i>
+            </ng-container>      
+            <ng-container *ngIf="isTasksPage()">
+                <i class="create-project fa fa-plus-circle" (click)="createTask()">Create Task</i>
+            </ng-container>   
+            <ng-container *ngIf="isCommentsPage()">
+                <i class="create-project fa fa-plus-circle" (click)="addComment()">Add Comment</i>
+            </ng-container>  
         </div>
         <div class="content-main">
             <router-outlet></router-outlet>
