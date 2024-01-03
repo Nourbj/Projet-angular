@@ -42,12 +42,12 @@ export class ProjectsComponent {
     );
   }
 
-  navigateToTasks(projectId: number): void {
-    this.router.navigate(['/dashboard/tasks', projectId]);
+  navigateToTasks(projectId: string): void {
+    this.router.navigate(['/dashboard', projectId, 'tasks']);
   }
 
-  navigateToSettings(projectId: number): void {
-    this.router.navigate(['/dashboard/settings', projectId]);
+  navigateToSettings(): void {
+    this.router.navigate(['/dashboard/settings']);
   }
 
 }

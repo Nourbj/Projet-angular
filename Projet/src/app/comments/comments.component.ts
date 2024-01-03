@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comments',
@@ -7,12 +9,28 @@ import { Component } from '@angular/core';
 })
 export class CommentsComponent {
 
-  comments = [
-    {
-      name : "moi dead",
-      time : "hh:MM:ss dd-mm-yyyy",
-      writer : "hadil"
-    }
-  ]
+  comments: any[] = [];
+
+  constructor(private router: Router, private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.loadComments();
+  }
+
+  loadComments(): void {
+    this.http.get<any[]>('http://localhost:3000/get-comments').subscribe(
+      (data) => {
+        this.comments = data;
+        console.log(this.comments);
+      },
+      (error) => {
+        console.error('Error fetching comments:', error);
+      }
+    );
+  }
+
+  navigateToSettings(): void {
+    
+  }
 
 }
