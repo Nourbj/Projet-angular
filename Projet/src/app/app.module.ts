@@ -24,6 +24,8 @@ import { CreateProjectComponent } from './create-project/create-project.componen
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { ViewDocComponent } from './view-doc/view-doc.component';
 import { CommentsComponent } from './comments/comments.component';
+import { CreateTaskComponent } from './create-task/create-task.component';
+import { CreateCommentComponent } from './create-comment/create-comment.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { CommentsComponent } from './comments/comments.component';
     TaskDetailComponent,
     ViewDocComponent,
     CommentsComponent,
+    CreateTaskComponent,
+    CreateCommentComponent,
   ],
   imports: [
     BrowserModule,
