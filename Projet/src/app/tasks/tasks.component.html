@@ -21,13 +21,12 @@
         <td><button class="project-name-btn" >{{ task.title }}</button></td>
         <td>{{ task.category }}</td>
         <td>{{ task.priority }}</td>
-
         <td>{{ task.description }}</td>
         <td><button class="btn btn-link btn-sm" (click)="navigateToTaskDetails(task._id)">Show Details</button></td>
-
-       
-          
       </tr>
     </tbody>
   </table>
+  <button class="circle-add-button button" (click)="createTask()">
+    <img src="../../assets/square-plus.svg">
+  </button>
 </div>

@@ -12,14 +12,23 @@ export class TasksComponent {
 
   tasks: any[] = [];
 
+  projectId: string | null = null;
+
   constructor(private router: Router, private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.projectId = params['projectId'];
+
+      console.log('projectId:', this.projectId);
+    });
     this.loadTasks();
   }
 
   loadTasks(): void {
-    this.http.get<any[]>('http://localhost:3000/get-tasks').subscribe(
+    const apiUrl = `http://localhost:3000/get-tasks/${this.projectId}`;
+  
+    this.http.get<any[]>(apiUrl).subscribe(
       (data) => {
         this.tasks = data;
         console.log(this.tasks);
@@ -31,14 +40,14 @@ export class TasksComponent {
   }
 
   navigateToTaskDetails(taskId: string): void {
-    const projectId = this.route.snapshot.paramMap.get('projectId');
-    this.router.navigate(['/dashboard', projectId, taskId, 'task-details']);
+    this.router.navigate(['/dashboard', this.projectId, taskId, 'task-details']);
   }
 
-  showTaskDetails(taskId: string): void {
-    // Utiliser les paramètres de route pour transmettre l'ID de la tâche sélectionnée
-    const projectId = this.route.snapshot.paramMap.get('projectId');
-    this.router.navigate(['/dashboard', projectId, 'task-details', taskId]);
+  createTask() : void {
+    this.router.navigate(['/dashboard', this.projectId, 'create-task']);
   }
 
+  navigateToDocs(): void {
+    this.router.navigate(['/dashboard/view-doc']);
+  }
 }
