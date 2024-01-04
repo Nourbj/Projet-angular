@@ -37,6 +37,7 @@
 
 table {
     padding-left: 5rem;
+    padding-left: 5rem;
     margin-top: 2rem;
     display: block;
     width: 100%;
@@ -92,6 +93,22 @@ img {
     margin-right: 0.5rem;
 }
 
+.status {
+    padding-right: 5rem;
+    padding-left: 2rem;
+}
+
+.rounded-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+img {
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
 .badge {
     --mdb-badge-color: #fff;
     --mdb-badge-border-radius: 0.27rem;
@@ -110,6 +127,22 @@ img {
 
 .d-inline {
     display: inline !important;
+}
+
+
+.badge-success {
+    background-color: #dcf1e4;
+    color: #0c622e;
+}
+
+.badge-primary {
+    background-color: #e2eaf7;
+    color: #2f5aa2;
+}
+
+.badge-waiting {
+    background-color: #fbf1dd;
+    color: #74510c;
 }
 
 
@@ -159,4 +192,18 @@ button:hover {
 
 .btn-space {
     margin-left: 10px; /* Ajustez la valeur selon votre préférence pour l'espace entre les boutons */
-  }
+}
+
+.circle-add-button {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    height: 30px;
+    width: 30px;
+    background: #eba6cc;
+    border-radius: 25%;
+}
+
+.circle-add-button:hover {
+    background: #e582b8;
+}

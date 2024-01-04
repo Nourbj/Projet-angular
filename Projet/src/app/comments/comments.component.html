@@ -17,14 +17,17 @@
     <tbody>
       <tr *ngFor="let comment of comments">
         <td>{{ comment.message }}</td>
-        <td>{{ comment.time }}</td>
+        <td>{{ comment.time | date:'medium' }}</td>
         <td>{{ comment.writer }}</td>
         <td class="td-btn">
           <button type="button" class="btn btn-link btn-sm" (click)="navigateToSettings()">EDIT</button>
-          <span class="btn-space"></span> <!-- Ajout de l'espace -->
+          <span class="btn-space"></span> 
           <button type="button" class="btn btn-link btn-sm">DELETE</button>
         </td>
       </tr>
     </tbody>
   </table>
+  <button class="circle-add-button button" (click)="addComment()">
+    <img src="../../assets/square-plus.svg">
+  </button>
 </div>
