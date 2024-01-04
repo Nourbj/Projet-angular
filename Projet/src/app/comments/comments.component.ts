@@ -45,4 +45,21 @@ export class CommentsComponent {
     this.router.navigate(['/dashboard', this.projectId, this.taskId, 'create-comment']);
   }
 
+  deleteComment(commentId : String) : void {
+    const confirmation = window.confirm('Are you sure you want to delete this comment?');
+  
+  if (confirmation && commentId) {
+    this.http.delete(`http://localhost:3000/delete-comment/${commentId}`).subscribe(
+      () => {
+        console.log('Comment deleted successfully.');
+        // Refresh the comments after deletion or update the view accordingly
+        this.loadComments();
+      },
+      (error) => {
+        console.error('Error deleting comment:', error);
+      }
+    );
+  }
+  }
+
 }
