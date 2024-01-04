@@ -313,16 +313,7 @@ app.post('/create-comment', async (req, res) => {
 });
 
 app.get('/get-comments/:taskId', async (req, res) => {
-app.get('/get-comments/:taskId', async (req, res) => {
   try {
-    const taskId = req.params.taskId;
-
-    if (!mongoose.Types.ObjectId.isValid(taskId)) {
-      console.log('Invalid task ID');
-      return res.status(400).json({ error: 'Invalid task ID' });
-    }
-
-    const comments = await Comment.find({ task_id: taskId });
     const taskId = req.params.taskId;
 
     if (!mongoose.Types.ObjectId.isValid(taskId)) {
