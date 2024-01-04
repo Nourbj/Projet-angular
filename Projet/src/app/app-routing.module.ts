@@ -54,7 +54,8 @@ const routes: Routes = [
       { path: ':projectId/:taskId/view-doc', component: ViewDocComponent},
       { path: ':projectId/:taskId/comment', component: CommentsComponent},
       { path: ':projectId/:taskId/create-comment', component: CreateCommentComponent},
-      { path: ':projectId/:taskId/task-details/update-task', component: UpdateTaskComponent}
+      { path: ':projectId/:taskId/task-details/update-task', component: UpdateTaskComponent},
+      { path: ':projectId/edit-project', component: EditProjectComponent}
     ]
   }
 ];
