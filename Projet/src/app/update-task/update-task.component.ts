@@ -19,7 +19,6 @@ export class UpdateTaskComponent implements OnInit {
       const taskId = params['taskId'];
       console.log('Task ID from URL:', taskId);
 
-      // Directly fetch task details without using a service
       this.http.get<any>(`${this.backendUrl}/get-task/${taskId}`).subscribe(
         (taskData) => {
           console.log('Task data:', taskData);
@@ -39,7 +38,6 @@ export class UpdateTaskComponent implements OnInit {
   }
 
   updateTask(): void {
-    // Assurez-vous que l'ID de la tâche est disponible
     if (!this.task || !this.task._id) {
       console.error('Invalid task ID');
       return;
@@ -48,7 +46,6 @@ export class UpdateTaskComponent implements OnInit {
     console.log('Updating task:', this.task);  
     console.log('Updated task data for submission:', this.task);
   
-    // Construire l'URL complète pour la mise à jour avec l'ID de la tâche
     const url = `${this.backendUrl}/update-task/${this.task._id}`;
   
     this.http.put(url, this.task)
@@ -56,7 +53,6 @@ export class UpdateTaskComponent implements OnInit {
         (response: any) => {
           console.log('Task updated successfully:', response);
   
-          // Naviguez vers la nouvelle URL avec l'ID de la tâche après la mise à jour
           const updatedTaskId = response._id;
           this.router.navigate(['/dashboard/tasks', updatedTaskId]);
         },
@@ -64,5 +60,6 @@ export class UpdateTaskComponent implements OnInit {
           console.error('Task update failed:', error);
         }
       );
+    this.router.navigate(['/dashboard', this.task.project_id, this.task._id, 'task-details']);
   }
 }
