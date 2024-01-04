@@ -9,35 +9,35 @@
     <tbody>
       <tr>
         <td class="attribute">Title:</td>
-        <td> {{ tasks.title }}</td>
+        <td class="value"> {{ task.title }}</td>
       </tr>
       <tr>
         <td class="attribute">Category:</td>
-        <td> {{ tasks.category }}</td>
+        <td class="value"> {{ task.category }}</td>
       </tr>
       <tr>
         <td class="attribute">Description:</td>
-        <td>{{ tasks.description }}</td>
+        <td class="value">{{ task.description }}</td>
       </tr>
       <tr>
         <td class="attribute">Due-Date:</td>
-        <td>{{ tasks.due_date }}</td>
-      </tr>
-      <tr>
-        <td class="attribute">Owner:</td>
-        <td>{{ tasks.owner }}</td>
+        <td class="value">{{ task.due_date | date:'medium'  }}</td>
       </tr>
       <tr>
         <td class="attribute">Priority:</td>
-        <td><button class="project-name-btn">{{ tasks.priority }}</button></td>
+        <td class="value"><button class="project-name-btn">{{ task.priority }}</button></td>
       </tr>
       <tr>
         <td class="attribute">State:</td>
-        <td>{{ tasks.state }}</td>
+        <td class="value">{{ task.state }}</td>
+      </tr>
+      <tr>
+        <td class="attribute">Owner:</td>
+        <td class="value">{{ task.owner }}</td>
       </tr>
       <tr>
         <td class="attribute">Assignee:</td>
-        <td>{{ tasks.assignee }}</td>
+        <td class="value">{{ task.assignee }}</td>
       </tr>
       <tr>
         <td class="td-btn" colspan="2">
