@@ -243,10 +243,6 @@ app.put('/update-task/:taskId', async (req, res) => {
 
 
 
-
-
-
-
 // Comment CRUD
 const commentSchema = new mongoose.Schema({
   task_id : {
@@ -312,7 +308,33 @@ app.get('/get-comments/:taskId', async (req, res) => {
   }
 });
 
+// Delete a comment by ID
+app.delete('/delete-comment/:commentId', async (req, res) => {
+  const commentId = req.params.commentId;
 
+  try {
+    console.log('Deleting comment with ID:', commentId);
+
+    if (!mongoose.Types.ObjectId.isValid(commentId)) {
+      console.log('Invalid comment ID');
+      return res.status(400).json({ error: 'Invalid comment ID' });
+    }
+
+    // Find and delete the comment
+    const deletedComment = await Comment.findByIdAndDelete(commentId);
+
+    if (!deletedComment) {
+      console.log('Comment not found');
+      return res.status(404).json({ error: 'Comment not found' });
+    }
+
+    console.log('Comment deleted successfully');
+    res.status(200).json({ message: 'Comment deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting comment:', error);
+    res.status(500).json({ error: 'Error deleting comment', details: error.message });
+  }
+});
 
 
 
