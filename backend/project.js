@@ -169,8 +169,45 @@ app.delete('/delete-task/:taskId', async (req, res) => {
   }
 });
 
+// Get task details
+app.get('/task-details/:id', async (req, res) => {
+  const taskId = req.params.id;
 
-// Dans votre route de mise à jour des tâches
+  try {
+    const task = await Task.findById(taskId);
+
+    if (task) {
+      res.json(task);
+    } else {
+      res.status(404).json({ error: 'Task not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching task details:', error);
+    res.status(500).json({ error: 'Error fetching task details', details: error.message });
+  }
+});
+
+
+// Get a single task by ID for update
+app.get('/get-task/:taskId', async (req, res) => {
+  const taskId = req.params.taskId;
+
+  try {
+    const task = await Task.findById(taskId);
+
+    if (task) {
+      res.json(task);
+    } else {
+      res.status(404).json({ error: 'Task not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching task details:', error);
+    res.status(500).json({ error: 'Error fetching task details', details: error.message });
+  }
+});
+
+
+// Update task
 app.put('/update-task/:taskId', async (req, res) => {
   const taskId = req.params.taskId;
   const updatedTaskData = req.body;
@@ -204,23 +241,8 @@ app.put('/update-task/:taskId', async (req, res) => {
 });
 
 
-// Get task details
-app.get('/task-details/:id', async (req, res) => {
-  const taskId = req.params.id;
 
-  try {
-    const task = await Task.findById(taskId);
 
-    if (task) {
-      res.json(task);
-    } else {
-      res.status(404).json({ error: 'Task not found' });
-    }
-  } catch (error) {
-    console.error('Error fetching task details:', error);
-    res.status(500).json({ error: 'Error fetching task details', details: error.message });
-  }
-});
 
 
 
