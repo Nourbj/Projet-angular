@@ -81,18 +81,12 @@ app.delete('/delete-project/:projectId', async (req, res) => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
 // Task CRUD
 const taskSchema = new mongoose.Schema({
+  project_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Project' 
+  },
   title : String,
   description : String,
   due_date : Date,
@@ -108,50 +102,43 @@ module.exports = Task;
 
 app.post('/create-task', async (req, res) => {
   try {
-      const taskData = new Task(req.body);
-      const savedTask = await taskData.save();
-      console.log('Task data received:', req.body);
-      console.log('Task saved:', savedTask);
-      res.json(savedTask);
+    const projectId = req.body.project_id;
+
+    if (!mongoose.Types.ObjectId.isValid(projectId)) {
+      console.log('Invalid project ID');
+      return res.status(400).json({ error: 'Invalid project ID' });
+    }
+
+    const projectExists = await Project.findById(projectId);
+
+    if (!projectExists) {
+      console.log('Project not found');
+      return res.status(404).json({ error: 'Project not found' });
+    }
+
+    const taskData = new Task(req.body);
+    const savedTask = await taskData.save();
+    console.log('Task data received:', req.body);
+    console.log('Task saved:', savedTask);
+    res.json(savedTask);
   } catch (error) {
       console.error('Error creating task:', error);
       res.status(500).json({ error: 'Error creating task', details: error.message });
   }
 });
 
+app.get('/get-tasks/:projectId', async (req, res) => {
+  const projectId = req.params.projectId;
 
-app.get('/get-tasks', async (req, res) => {
   try {
-    const tasks = await Task.find();
+    const tasks = await Task.find({ project_id: projectId });
+
     res.json(tasks);
   } catch (error) {
     console.error('Error fetching tasks:', error);
     res.status(500).json({ error: 'Error fetching tasks', details: error.message });
   }
 });
-
-app.get('/get-task/:taskId', async (req, res) => {
-  try {
-    const taskId = req.params.taskId;
-    console.log('Fetching task details for taskId:', taskId);
-
-    const task = await Task.findById(taskId);
-
-    if (!task) {
-      console.log('Task not found');
-      return res.status(404).json({ error: 'Task not found' });
-    }
-
-    console.log('Task details found:', task);
-    res.json(task);
-  } catch (error) {
-    console.error('Error fetching task details:', error);
-    res.status(500).json({ error: 'Error fetching task details', details: error.message });
-  }
-});
-
-
-
 
 
 app.delete('/delete-task/:taskId', async (req, res) => {
@@ -181,7 +168,6 @@ app.delete('/delete-task/:taskId', async (req, res) => {
     res.status(500).json({ error: 'Error deleting task', details: error.message });
   }
 });
-
 
 
 // Dans votre route de mise à jour des tâches
@@ -218,10 +204,33 @@ app.put('/update-task/:taskId', async (req, res) => {
 });
 
 
+// Get task details
+app.get('/task-details/:id', async (req, res) => {
+  const taskId = req.params.id;
+
+  try {
+    const task = await Task.findById(taskId);
+
+    if (task) {
+      res.json(task);
+    } else {
+      res.status(404).json({ error: 'Task not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching task details:', error);
+    res.status(500).json({ error: 'Error fetching task details', details: error.message });
+  }
+});
+
+
 
 
 // Comment CRUD
 const commentSchema = new mongoose.Schema({
+  task_id : {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Task' 
+  },
   message : String,
   time : Date,
   writer : String
@@ -232,20 +241,48 @@ module.exports = Comment;
 
 app.post('/create-comment', async (req, res) => {
   try {
-      const commentData = new Comment(req.body);
-      const savedComment = await commentData.save();
-      console.log('Comment data received:', req.body);
-      console.log('Comment saved:', savedComment);
-      res.json(savedComment);
+    const taskId = req.body.task_id;
+
+    // Validate if taskId is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(taskId)) {
+      console.log('Invalid task ID');
+      return res.status(400).json({ error: 'Invalid task ID' });
+    }
+
+    const taskExists = await Task.findById(taskId);
+
+    if (!taskExists) {
+      console.log('Task not found');
+      return res.status(404).json({ error: 'Task not found' });
+    }
+
+    const commentData = new Comment({
+      task_id: taskId,
+      message: req.body.message, 
+      time: req.body.time,
+      writer: req.body.writer 
+    });
+
+    const savedComment = await commentData.save();
+    console.log('Comment data received:', req.body);
+    console.log('Comment saved:', savedComment);
+    res.json(savedComment);
   } catch (error) {
-      console.error('Error creating comment:', error);
-      res.status(500).json({ error: 'Error creating comment', details: error.message });
+    console.error('Error creating comment:', error);
+    res.status(500).json({ error: 'Error creating comment', details: error.message });
   }
 });
 
-app.get('/get-comments', async (req, res) => {
+app.get('/get-comments/:taskId', async (req, res) => {
   try {
-    const comments = await Comment.find();
+    const taskId = req.params.taskId;
+
+    if (!mongoose.Types.ObjectId.isValid(taskId)) {
+      console.log('Invalid task ID');
+      return res.status(400).json({ error: 'Invalid task ID' });
+    }
+
+    const comments = await Comment.find({ task_id: taskId });
     res.json(comments);
   } catch (error) {
     console.error('Error fetching comments:', error);
