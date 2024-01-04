@@ -20,7 +20,7 @@
         <td>{{ comment.time | date:'medium' }}</td>
         <td>{{ comment.writer }}</td>
         <td class="td-btn">
-          <button type="button" class="btn btn-link btn-sm" (click)="navigateToSettings()">UPDATE</button>
+          <button type="button" class="btn btn-link btn-sm" (click)="navigateToEdit(comment)">UPDATE</button>
           <span class="btn-space"></span> 
           <button type="button" class="btn btn-link btn-sm" (click)="deleteComment(comment._id)">DELETE</button>
         </td>

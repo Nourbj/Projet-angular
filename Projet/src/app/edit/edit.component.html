@@ -1,0 +1,23 @@
+<div class="header"> 
+    <div class="course-box">
+        <h2>Update Comment</h2>
+    </div>
+</div>
+
+<div class="card overflow-hidden">
+    <form class="card-body" (ngSubmit)="updateComment()">
+        <div class="form-group">
+            <label class="form-label">Comment</label>
+            <textarea type="text" class="form-control mb-1" placeholder="whrite comment" required [(ngModel)]="comment.message" name="message"></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Writer</label>
+            <select name="writer" id="writer" required [(ngModel)]="comment.writer" name="writer">
+                <option value="Hadil Yahiaoui">Hadil Yahiaoui</option>
+                <option value="Nour Ben Jannena">Nour Ben Jannena</option>
+                <option value="Foulen Ben Foulen">Foulen Ben Foulen</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Comment</button>
+    </form>
+</div>

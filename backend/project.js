@@ -372,7 +372,40 @@ app.delete('/delete-comment/:commentId', async (req, res) => {
 });
 
 
+// Route pour obtenir les détails d'un commentaire par son ID
+app.get('/get-comment/:commentId', async (req, res) => {
+  const commentId = req.params.commentId;
 
+  try {
+    // Utilisez Mongoose pour récupérer les détails du commentaire depuis la base de données
+    const comment = await Comment.findById(commentId);
+
+    if (!comment) {
+      return res.status(404).json({ error: 'Comment not found' });
+    }
+
+    res.json(comment);
+  } catch (error) {
+    console.error('Error fetching comment details:', error);
+    res.status(500).json({ error: 'Error fetching comment details', details: error.message });
+  }
+});
+
+// Route pour mettre à jour un commentaire par son ID
+app.put('/edit-comment/:commentId', async (req, res) => {
+  const commentId = req.params.commentId;
+  const updatedCommentData = req.body;
+
+  try {
+    // Utilisez Mongoose pour mettre à jour le commentaire dans la base de données
+    const updatedComment = await Comment.findByIdAndUpdate(commentId, updatedCommentData, { new: true });
+
+    res.json(updatedComment);
+  } catch (error) {
+    console.error('Error updating comment:', error);
+    res.status(500).json({ error: 'Error updating comment', details: error.message });
+  }
+});
 
 
 

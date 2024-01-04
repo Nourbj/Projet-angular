@@ -21,6 +21,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { CreateCommentComponent } from './create-comment/create-comment.component';
 import { UpdateTaskComponent } from './update-task/update-task.component';
+import { EditComponent } from './edit/edit.component';
 
 
 const routes: Routes = [
@@ -46,7 +47,6 @@ const routes: Routes = [
       { path: 'helping', component: HelpingComponent },
       { path: 'projects', component: ProjectsComponent}, 
       { path: 'create-project', component: CreateProjectComponent},
-      { path: 'create-project', component: CreateProjectComponent},
       { path: 'settings/:projectId', component: EditProjectComponent},
       { path: ':projectId/tasks', component: TasksComponent},
       { path: ':projectId/:taskId/task-details', component: TaskDetailComponent},
@@ -55,7 +55,8 @@ const routes: Routes = [
       { path: ':projectId/:taskId/comment', component: CommentsComponent},
       { path: ':projectId/:taskId/create-comment', component: CreateCommentComponent},
       { path: ':projectId/:taskId/task-details/update-task', component: UpdateTaskComponent},
-      { path: ':projectId/edit-project', component: EditProjectComponent}
+      { path: ':projectId/edit-project', component: EditProjectComponent},
+      { path: ':projectId/:taskId/comment/edit-comment/:id', component: EditComponent }
     ]
   }
 ];
