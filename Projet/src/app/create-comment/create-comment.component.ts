@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-comment',
@@ -9,20 +9,27 @@ import { Router } from '@angular/router';
 })
 export class CreateCommentComponent {
 
+  project_id = '';
+
   comment = {
+    task_id : '',
     message : '',
     time : '',
     writer : ''
   }
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.comment.task_id = this.route.snapshot.paramMap.get('taskId') || '';
+    this.project_id = this.route.snapshot.paramMap.get('projectId') || '';
+  }
 
   createComment(): void {
     this.comment.time = new Date().toISOString();
     
     const commentData = {
+      task_id: this.comment.task_id,
       message : this.comment.message,
       time : this.comment.time,
       writer : this.comment.writer
@@ -40,6 +47,7 @@ export class CreateCommentComponent {
         console.error('comment creation failed:', error);
       }
     );
+    this.router.navigate(['/dashboard', this.project_id, this.comment.task_id, 'comment']);
   }
 
 }

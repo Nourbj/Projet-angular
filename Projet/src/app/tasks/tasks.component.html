@@ -10,21 +10,23 @@
       <tr>
         <th>Name</th>
         <th>Category</th>
+        <th>Priority</th>
         <th>Description</th>
+        
         <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let task of tasks">
-        <td><button class="project-name-btn" (click)="navigateToTaskDetails(task._id)">{{ task.title }}</button></td>
+        <td><button class="project-name-btn" >{{ task.title }}</button></td>
         <td>{{ task.category }}</td>
+        <td>{{ task.priority }}</td>
         <td>{{ task.description }}</td>
-        <td class="td-btn">
-          <button type="button" class="btn btn-link btn-sm" (click)="navigateToDocs()">VIEW DOCS</button>
-          <span class="btn-space"></span> <!-- Ajout de l'espace -->
-          <button type="button" class="btn btn-link btn-sm" (click)="navigateToComment()">COMMENT</button>
-        </td>
+        <td><button class="btn btn-link btn-sm" (click)="navigateToTaskDetails(task._id)">Show Details</button></td>
       </tr>
     </tbody>
   </table>
+  <button class="circle-add-button button" (click)="createTask()">
+    <img src="../../assets/square-plus.svg">
+  </button>
 </div>

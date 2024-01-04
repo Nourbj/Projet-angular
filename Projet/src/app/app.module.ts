@@ -26,6 +26,7 @@ import { ViewDocComponent } from './view-doc/view-doc.component';
 import { CommentsComponent } from './comments/comments.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { CreateCommentComponent } from './create-comment/create-comment.component';
+import { UpdateTaskComponent } from './update-task/update-task.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { CreateCommentComponent } from './create-comment/create-comment.componen
     CommentsComponent,
     CreateTaskComponent,
     CreateCommentComponent,
+    UpdateTaskComponent,
   ],
   imports: [
     BrowserModule,

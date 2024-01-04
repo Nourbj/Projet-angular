@@ -16,31 +16,4 @@ export class DashboardComponent {
   logout(): void {
     this.router.navigate(['/landing']);
   }
-
-  createProject() : void {
-    this.router.navigate(['/dashboard/create-project']);
-  }
-
-  createTask() : void {
-    // const projectId = this.route.snapshot.paramMap.get('projectId');
-    // console.log(projectId);
-    // this.router.navigate(['/dashboard', projectId, 'create-task']);
-    this.router.navigate(['/dashboard/create-task']);
-  }
-
-  addComment() : void {
-    this.router.navigate(['/dashboard/create-comment']);
-  }
-
-  isProjectsPage(): boolean {
-    return this.router.isActive('/dashboard/projects', false);
-  }
-
-  isTasksPage(): boolean {
-    return this.router.url.endsWith('/tasks');
-  }
-
-  isCommentsPage(): boolean {
-    return this.router.isActive('/dashboard/comment', false);
-  }
 }

@@ -1,63 +1,55 @@
 <div class="header"> 
-    <div class="course-box">
-        <h2>Task Details</h2>
-    </div>
+  <div class="course-box">
+    <h2>Task Details</h2>
+  </div>
 </div>
 
-<div class="card overflow-hidden">
-    <div class="card-body">
-        <div class="form-group">
-            <label class="form-label">Task Title</label>
-            <input type="text" class="form-control mb-1" value="Task Title">
-        </div>
-        <div class="form-group">
-            <label class="form-label">Category</label>
-            <input type="text" class="form-control mb-1" value="category">
-        </div>
-        <div class="form-group">
-            <label class="form-label">Description</label>
-            <input type="text" class="form-control mb-1" value="Description">
-        </div>
-        <div class="form-group">
-            <label class="form-label">Due Date</label>
-            <input type="text" class="form-control mb-1" value="dd-mm-yyyy">
-        </div>
-        <div class="form-group">
-            <label class="form-label">Priority</label>
-            <select name="priority" id="priority">
-                <option value="empty">Task Priority</option>
-                <option value="waiting">Important</option>
-                <option value="in-progress">Medium</option>
-                <option value="done">Basic</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-label">Status</label>
-            <select name="status" id="status">
-                <option value="empty">Project Status</option>
-                <option value="waiting">Not Started</option>
-                <option value="in-progress">In progress</option>
-                <option value="done">Done</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-label">Owner</label>
-            <select name="owner" id="owner">
-                <option value="empty">Task Owner</option>
-                <option value="p1">Hadil Yahiaoui</option>
-                <option value="p2">Nour Ben Jannena</option>
-                <option value="p3">Foulen Ben Foulen</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-label">Assignee</label>
-            <select name="owner" id="owner">
-                <option value="empty">Task Assignee</option>
-                <option value="p1">Hadil Yahiaoui</option>
-                <option value="p2">Nour Ben Jannena</option>
-                <option value="p3">Foulen Ben Foulen</option>
-            </select>
-        </div>
-        <button type="button" class="btn btn-primary">Save Changes</button>
-    </div>
+<div class="container">
+  <table class="align-middle mb-0 bg-white">
+    <tbody>
+      <tr>
+        <td class="attribute">Title:</td>
+        <td class="value"> {{ task.title }}</td>
+      </tr>
+      <tr>
+        <td class="attribute">Category:</td>
+        <td class="value"> {{ task.category }}</td>
+      </tr>
+      <tr>
+        <td class="attribute">Description:</td>
+        <td class="value">{{ task.description }}</td>
+      </tr>
+      <tr>
+        <td class="attribute">Due-Date:</td>
+        <td class="value">{{ task.due_date | date:'medium'  }}</td>
+      </tr>
+      <tr>
+        <td class="attribute">Priority:</td>
+        <td class="value"><button class="project-name-btn">{{ task.priority }}</button></td>
+      </tr>
+      <tr>
+        <td class="attribute">State:</td>
+        <td class="value">{{ task.state }}</td>
+      </tr>
+      <tr>
+        <td class="attribute">Owner:</td>
+        <td class="value">{{ task.owner }}</td>
+      </tr>
+      <tr>
+        <td class="attribute">Assignee:</td>
+        <td class="value">{{ task.assignee }}</td>
+      </tr>
+      <tr>
+        <td class="td-btn" colspan="2">
+          <button type="button" class="btn btn-link btn-sm" (click)="navigateToDocs()">VIEW DOCS</button>
+          <span class="btn-space"></span>
+          <button type="button" class="btn btn-link btn-sm" (click)="navigateToComment()">COMMENT</button>
+          <span class="btn-space"></span>
+          <button type="button" class="btn btn-link btn-sm" (click)="updateTask()">UPDATE</button>
+          <span class="btn-space"></span>
+          <button type="button" class="btn btn-link btn-sm" (click)="deleteTask()">DELETE</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

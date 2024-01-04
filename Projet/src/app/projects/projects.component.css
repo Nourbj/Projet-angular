@@ -159,4 +159,18 @@ button:hover {
 
 .btn-space {
     margin-left: 10px; /* Ajustez la valeur selon votre préférence pour l'espace entre les boutons */
-  }
+}
+
+.circle-add-button {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    height: 30px;
+    width: 30px;
+    background: #eba6cc;
+    border-radius: 25%;
+}
+
+.circle-add-button:hover {
+    background: #e582b8;
+}

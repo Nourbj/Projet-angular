@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-task',
@@ -10,22 +10,30 @@ import { Router } from '@angular/router';
 export class CreateTaskComponent {
 
   task = {
-    title : '',
-    description : '',
-    due_date : '',
-    owner : '',
-    priority : '',
-    state : '',
-    category : '',
-    assignee : ''
+    project_id: '', 
+    title: '',
+    description: '',
+    due_date: '',
+    owner: '',
+    priority: '',
+    state: '',
+    category: '',
+    assignee: ''
+  };
+
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private route: ActivatedRoute 
+  ) {}
+
+  ngOnInit(): void {
+    this.task.project_id = this.route.snapshot.paramMap.get('projectId') || '';
   }
-
-  constructor(private http: HttpClient, private router: Router) {}
-
-  ngOnInit(): void {}
 
   createTask(): void {
     const taskData = {
+      project_id: this.task.project_id, 
       title: this.task.title,
       description: this.task.description,
       due_date: this.task.due_date,
@@ -41,13 +49,13 @@ export class CreateTaskComponent {
     this.http.post(backendUrl, taskData)
     .subscribe(
       (response: any) => {
-        console.log('task creation successful:', response);
+        console.log('Task creation successful:', response);
         this.router.navigate(['/dashboard/tasks']);
       },
       (error) => {
-        console.error('task creation failed:', error);
+        console.error('Task creation failed:', error);
       }
     );
+    this.router.navigate(['/dashboard', this.task.project_id, 'tasks']);
   }
-
 }
