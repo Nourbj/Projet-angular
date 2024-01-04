@@ -169,8 +169,45 @@ app.delete('/delete-task/:taskId', async (req, res) => {
   }
 });
 
+// Get task details
+app.get('/task-details/:id', async (req, res) => {
+  const taskId = req.params.id;
 
-// Dans votre route de mise à jour des tâches
+  try {
+    const task = await Task.findById(taskId);
+
+    if (task) {
+      res.json(task);
+    } else {
+      res.status(404).json({ error: 'Task not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching task details:', error);
+    res.status(500).json({ error: 'Error fetching task details', details: error.message });
+  }
+});
+
+
+// Get a single task by ID for update
+app.get('/get-task/:taskId', async (req, res) => {
+  const taskId = req.params.taskId;
+
+  try {
+    const task = await Task.findById(taskId);
+
+    if (task) {
+      res.json(task);
+    } else {
+      res.status(404).json({ error: 'Task not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching task details:', error);
+    res.status(500).json({ error: 'Error fetching task details', details: error.message });
+  }
+});
+
+
+// Update task
 app.put('/update-task/:taskId', async (req, res) => {
   const taskId = req.params.taskId;
   const updatedTaskData = req.body;
@@ -270,11 +307,22 @@ app.post('/create-comment', async (req, res) => {
   } catch (error) {
     console.error('Error creating comment:', error);
     res.status(500).json({ error: 'Error creating comment', details: error.message });
+    console.error('Error creating comment:', error);
+    res.status(500).json({ error: 'Error creating comment', details: error.message });
   }
 });
 
 app.get('/get-comments/:taskId', async (req, res) => {
+app.get('/get-comments/:taskId', async (req, res) => {
   try {
+    const taskId = req.params.taskId;
+
+    if (!mongoose.Types.ObjectId.isValid(taskId)) {
+      console.log('Invalid task ID');
+      return res.status(400).json({ error: 'Invalid task ID' });
+    }
+
+    const comments = await Comment.find({ task_id: taskId });
     const taskId = req.params.taskId;
 
     if (!mongoose.Types.ObjectId.isValid(taskId)) {
@@ -290,7 +338,33 @@ app.get('/get-comments/:taskId', async (req, res) => {
   }
 });
 
+// Delete a comment by ID
+app.delete('/delete-comment/:commentId', async (req, res) => {
+  const commentId = req.params.commentId;
 
+  try {
+    console.log('Deleting comment with ID:', commentId);
+
+    if (!mongoose.Types.ObjectId.isValid(commentId)) {
+      console.log('Invalid comment ID');
+      return res.status(400).json({ error: 'Invalid comment ID' });
+    }
+
+    // Find and delete the comment
+    const deletedComment = await Comment.findByIdAndDelete(commentId);
+
+    if (!deletedComment) {
+      console.log('Comment not found');
+      return res.status(404).json({ error: 'Comment not found' });
+    }
+
+    console.log('Comment deleted successfully');
+    res.status(200).json({ message: 'Comment deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting comment:', error);
+    res.status(500).json({ error: 'Error deleting comment', details: error.message });
+  }
+});
 
 
 

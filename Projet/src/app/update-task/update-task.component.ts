@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UpdateTaskComponent implements OnInit {
   task: any = {};
-  
+
   private backendUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
@@ -17,17 +17,17 @@ export class UpdateTaskComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const taskId = params['taskId'];
-      console.log('Task ID from URL:', taskId); 
-  
+      console.log('Task ID from URL:', taskId);
+
       this.http.get<any>(`${this.backendUrl}/get-task/${taskId}`).subscribe(
         (taskData) => {
           console.log('Task data:', taskData);
-  
+
           if (!taskData || !taskData._id) {
             console.error('Invalid task ID');
             return;
           }
-  
+
           this.task = taskData;
         },
         (error: any) => {
@@ -60,5 +60,6 @@ export class UpdateTaskComponent implements OnInit {
           console.error('Task update failed:', error);
         }
       );
+    this.router.navigate(['/dashboard', this.task.project_id, this.task._id, 'task-details']);
   }
 }
