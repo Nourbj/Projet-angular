@@ -23,9 +23,6 @@ export class ProjectsComponent implements OnInit {
         return 'secondary';
     }
   }
-
-  
-  
     constructor(
       private router: Router,
       private http: HttpClient,
@@ -52,16 +49,21 @@ export class ProjectsComponent implements OnInit {
     this.router.navigate(['/dashboard', projectId, 'tasks']);
   }
 
+  createProject() : void {
+    this.router.navigate(['/dashboard/create-project']);
+  }
+
   navigateToSettings(): void {
     this.router.navigate(['/dashboard/settings']);
   }
+  
   deleteProject(projectId: string): void {
     const confirmation = window.confirm('Are you sure you want to delete this project?');
     if (confirmation) {
       this.http.delete(`http://localhost:3000/delete-project/${projectId}`).subscribe(
         () => {
           console.log('Project deleted successfully.');
-          this.loadProjects(); // Rechargez la liste des projets après la suppression
+          this.loadProjects(); 
         },
         (error) => {
           console.error('Error deleting project:', error);
