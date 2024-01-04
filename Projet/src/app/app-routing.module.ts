@@ -46,6 +46,7 @@ const routes: Routes = [
       { path: 'helping', component: HelpingComponent },
       { path: 'projects', component: ProjectsComponent}, 
       { path: 'create-project', component: CreateProjectComponent},
+      { path: 'create-project', component: CreateProjectComponent},
       { path: 'settings/:projectId', component: EditProjectComponent},
       { path: ':projectId/tasks', component: TasksComponent},
       { path: ':projectId/:taskId/task-details', component: TaskDetailComponent},

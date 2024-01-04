@@ -20,9 +20,9 @@
         <td>{{ project.category }}</td>
         <td>{{ project.description }}</td>
         <td class="td-btn">
-          <button type="button" class="btn btn-link btn-sm" (click)="navigateToSettings()">EDIT</button>
+          <button type="button" class="btn btn-link btn-sm" (click)="navigateToSettings()">UPDATE</button>
           <span class="btn-space"></span> <!-- Ajout de l'espace -->
-          <button type="button" class="btn btn-link btn-sm" >DELETE</button>
+          <button type="button" class="btn btn-link btn-sm" (click)="deleteProject(project._id)">DELETE</button>
         </td>
       </tr>
     </tbody>
