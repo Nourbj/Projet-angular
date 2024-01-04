@@ -119,6 +119,7 @@ app.post('/create-task', async (req, res) => {
   }
 });
 
+
 app.get('/get-tasks', async (req, res) => {
   try {
     const tasks = await Task.find();
@@ -128,6 +129,27 @@ app.get('/get-tasks', async (req, res) => {
     res.status(500).json({ error: 'Error fetching tasks', details: error.message });
   }
 });
+
+app.get('/get-task/:taskId', async (req, res) => {
+  try {
+    const taskId = req.params.taskId;
+    console.log('Fetching task details for taskId:', taskId);
+
+    const task = await Task.findById(taskId);
+
+    if (!task) {
+      console.log('Task not found');
+      return res.status(404).json({ error: 'Task not found' });
+    }
+
+    console.log('Task details found:', task);
+    res.json(task);
+  } catch (error) {
+    console.error('Error fetching task details:', error);
+    res.status(500).json({ error: 'Error fetching task details', details: error.message });
+  }
+});
+
 
 
 

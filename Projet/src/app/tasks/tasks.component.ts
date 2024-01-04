@@ -35,16 +35,10 @@ export class TasksComponent {
     this.router.navigate(['/dashboard', projectId, taskId, 'task-details']);
   }
 
-  navigateToComment(): void {
-    this.router.navigate(['/dashboard/comment']);
+  showTaskDetails(taskId: string): void {
+    // Utiliser les paramètres de route pour transmettre l'ID de la tâche sélectionnée
+    const projectId = this.route.snapshot.paramMap.get('projectId');
+    this.router.navigate(['/dashboard', projectId, 'task-details', taskId]);
   }
 
-  navigateToDocs(): void {
-    this.router.navigate(['/dashboard/view-doc']);
-  }
-
-   showTaskDetails(taskId: string): void {
-    // Naviguer vers les détails de la tâche lorsque le bouton "Show Details" est cliqué
-    this.router.navigate(['/dashboard/:projectId/:taskId/task-details', taskId]);
-  }
 }

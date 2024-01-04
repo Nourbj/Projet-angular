@@ -1,58 +1,55 @@
 <div class="header"> 
   <div class="course-box">
-      <h2>Task Details</h2>
+    <h2>Task Details</h2>
   </div>
 </div>
 
 <div class="container">
   <table class="align-middle mb-0 bg-white">
     <tbody>
-      <ng-container *ngFor="let task of tasks">
-        <tr>
-          <td class="attribute">Title:</td>
-          <td> {{ task.title }}</td>
-        </tr>
-        <tr>
-          <td class="attribute">Category:</td>
-          <td> {{ task.category }}</td>
-        </tr>
-        <tr>
-          <td class="attribute">Description:</td>
-          <td>{{ task.description }}</td>
-        </tr>
-        <tr>
-          <td class="attribute">Due-Date:</td>
-          <td>{{ task.due_date }}</td>
-        </tr>
-        <tr>
-          <td class="attribute">Owner:</td>
-          <td>{{ task.owner }}</td>
-        </tr>
-
-        <tr>
-          <td class="attribute">Priority:</td>
-          <td><button class="project-name-btn">{{ task.priority }}</button></td>
-        </tr>
-        <tr>
-          <td class="attribute">State:</td>
-          <td>{{ task.state }}</td>
-        </tr>
-        <tr>
-          <td class="attribute">Assignee:</td>
-          <td>{{ task.assignee }}</td>
-        </tr>
-        <tr>
-          <td class="td-btn" colspan="2">
-            <button type="button" class="btn btn-link btn-sm" (click)="navigateToDocs()">VIEW DOCS</button>
-            <span class="btn-space"></span>
-            <button type="button" class="btn btn-link btn-sm" (click)="navigateToComment()">COMMENT</button>
-            <span class="btn-space"></span>
-            <button type="button" class="btn btn-link btn-sm" (click)="updateTask()">UPDATE</button>
-            <span class="btn-space"></span>
-            <button type="button" class="btn btn-link btn-sm" (click)="deleteTask()">DELETE</button>
-          </td>
-        </tr>
-      </ng-container>
+      <tr>
+        <td class="attribute">Title:</td>
+        <td> {{ tasks.title }}</td>
+      </tr>
+      <tr>
+        <td class="attribute">Category:</td>
+        <td> {{ tasks.category }}</td>
+      </tr>
+      <tr>
+        <td class="attribute">Description:</td>
+        <td>{{ tasks.description }}</td>
+      </tr>
+      <tr>
+        <td class="attribute">Due-Date:</td>
+        <td>{{ tasks.due_date }}</td>
+      </tr>
+      <tr>
+        <td class="attribute">Owner:</td>
+        <td>{{ tasks.owner }}</td>
+      </tr>
+      <tr>
+        <td class="attribute">Priority:</td>
+        <td><button class="project-name-btn">{{ tasks.priority }}</button></td>
+      </tr>
+      <tr>
+        <td class="attribute">State:</td>
+        <td>{{ tasks.state }}</td>
+      </tr>
+      <tr>
+        <td class="attribute">Assignee:</td>
+        <td>{{ tasks.assignee }}</td>
+      </tr>
+      <tr>
+        <td class="td-btn" colspan="2">
+          <button type="button" class="btn btn-link btn-sm" (click)="navigateToDocs()">VIEW DOCS</button>
+          <span class="btn-space"></span>
+          <button type="button" class="btn btn-link btn-sm" (click)="navigateToComment()">COMMENT</button>
+          <span class="btn-space"></span>
+          <button type="button" class="btn btn-link btn-sm" (click)="updateTask()">UPDATE</button>
+          <span class="btn-space"></span>
+          <button type="button" class="btn btn-link btn-sm" (click)="deleteTask()">DELETE</button>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

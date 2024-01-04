@@ -9,18 +9,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
   
-  export class TaskDetailComponent implements OnInit {
-    tasks: any[] = [];
+export class TaskDetailComponent implements OnInit {
+  tasks: any | null = null;
+  projectId: string | null = null;
+  taskId: string | null = null;
 
-    projectId: string | null = null;
-    taskId: string | null = null;
-  
-    constructor(
-      private route: ActivatedRoute,
-      private router: Router,
-      private http: HttpClient
-    ) {}
-  
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -29,27 +27,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 
       console.log('projectId:', this.projectId);
       console.log('taskId:', this.taskId);
-    });
-    this.loadTasks();
 
+      this.loadTaskDetails();
+    });
   }
-   
-    
-  loadTasks(): void {
-    this.http.get<any[]>('http://localhost:3000/get-tasks').subscribe(
+
+  loadTaskDetails(): void {
+    this.http.get<any>(`http://localhost:3000/get-task/${this.taskId}`).subscribe(
       (data) => {
-        this.tasks = data;
-        console.log(this.tasks);
+        console.log('Task details:', data);
+        this.tasks = data;  // Assurez-vous que les données sont correctement assignées ici
       },
       (error) => {
-        console.error('Error fetching tasks:', error);
+        console.error('Error fetching task details:', error);
       }
     );
-  }
-
-  navigateToTaskDetails(taskId: string): void {
-    const projectId = this.route.snapshot.paramMap.get('projectId');
-    this.router.navigate(['/dashboard', projectId, taskId, 'task-details']);
   }
 
   navigateToComment(): void {
