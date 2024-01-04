@@ -46,14 +46,15 @@ const routes: Routes = [
       { path: 'helping', component: HelpingComponent },
       { path: 'projects', component: ProjectsComponent}, 
       { path: 'create-project', component: CreateProjectComponent},
+      { path: 'create-project', component: CreateProjectComponent},
       { path: 'settings/:projectId', component: EditProjectComponent},
       { path: ':projectId/tasks', component: TasksComponent},
       { path: ':projectId/:taskId/task-details', component: TaskDetailComponent},
-      { path: 'create-task', component: CreateTaskComponent},
-      { path: 'view-doc', component: ViewDocComponent},
-      { path: 'comment', component: CommentsComponent},
-      { path: 'create-comment', component: CreateCommentComponent},
-      { path: ':projectId/:taskId/task-details/update-task', component: UpdateTaskComponent }
+      { path: ':projectId/create-task', component: CreateTaskComponent},
+      { path: ':projectId/:taskId/view-doc', component: ViewDocComponent},
+      { path: ':projectId/:taskId/comment', component: CommentsComponent},
+      { path: ':projectId/:taskId/create-comment', component: CreateCommentComponent},
+      { path: ':projectId/:taskId/task-details/update-task', component: UpdateTaskComponent}
     ]
   }
 ];
