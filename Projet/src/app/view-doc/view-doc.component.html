@@ -1,29 +1,33 @@
 <div class="header"> 
-    <div class="course-box">
-        <h2>Joint Documents</h2>
-    </div>
+  <div class="course-box">
+      <h2>Joint Documents</h2>
+  </div>
 </div>
-  
-<div class="container">
-  <table class="align-middle mb-0 bg-white">
-    <thead class="bg-light">
-      <tr>
-        <th>Name</th>
-        <th>Owner</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let doc of docs">
-        <td>{{ doc.name }}</td>
-        <td>{{ doc.owner }}</td>
-        <td class="td-btn">
-          <button type="button" class="btn btn-link btn-sm">DOWNLOAD</button>
-          <span class="btn-space"></span> <!-- Ajout de l'espace -->
-          <button type="button" class="btn btn-link btn-sm">DELETE</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+
+<div class="container mt-4">
+<table class="table table-bordered">
+  <thead class="bg-light">
+    <tr>
+      <th>Name</th>
+      <th>Owner</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let doc of docs">
+      <td>{{ doc.name }}</td>
+      <td>{{ doc.owner }}</td>
+      <td>
+        <div class="d-flex align-items-center">
+          <div class="mr-3">
+           
+            <input type="file" id="document" (change)="onDocumentSelected($event)" accept=".pdf, .doc, .docx">
+          </div>
+          
+        
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 </div>
-  
