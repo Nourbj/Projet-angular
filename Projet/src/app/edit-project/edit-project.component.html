@@ -1,37 +1,26 @@
-<div class="header"> 
+<div class="header">
     <div class="course-box">
-        <h2>Edit Project</h2>
+      <h2>Update Project</h2>
     </div>
-</div>
-
-<div class="card overflow-hidden">
-    <div class="card-body">
-        <div class="form-group">
-            <label class="form-label">Project Name</label>
-            <input type="text" class="form-control mb-1" value="project name">
-        </div>
-        <div class="form-group">
-            <label class="form-label">Category</label>
-            <input type="text" class="form-control mb-1" value="category">
-        </div>
-        <div class="form-group">
-            <label class="form-label">Status</label>
-            <select name="status" id="status">
-                <option value="empty">Project Status</option>
-                <option value="waiting">Not Started</option>
-                <option value="in-progress">In progress</option>
-                <option value="done">Done</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-label">Lead</label>
-            <select name="people" id="people">
-                <option value="empty">Project Lead</option>
-                <option value="p1">Hadil Yahiaoui</option>
-                <option value="p2">Nour Ben Jannena</option>
-                <option value="p3">Foulen Ben Foulen</option>
-            </select>
-        </div>
-        <button type="button" class="btn btn-primary">Save Changes</button>
-    </div>
-</div>
+  </div>
+  
+  <div class="card overflow-hidden">
+<form (ngSubmit)="updateProject()">
+      <div class="form-group">
+        <label for="project-name" class="form-label">Project Name</label>
+        <input type="text" class="form-control mb-1" placeholder="Project Name" required [(ngModel)]="project.name" name="name">
+      </div>
+  
+      <div class="form-group">
+        <label for="Category" class="form-label">Category</label>
+        <input type="text" class="form-control mb-1" placeholder="Category" required [(ngModel)]="project.category" name="category">
+      </div>
+  
+      <div class="form-group">
+        <label for="description" class="form-label">Project Description</label>
+        <textarea id="description" name="description" placeholder="Project Description" style="height:50px" [(ngModel)]="project.description" name="description" required></textarea>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Update Project</button>
+    </form>
+  </div>

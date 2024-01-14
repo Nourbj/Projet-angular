@@ -50,6 +50,41 @@ app.get('/get-projects', async (req, res) => {
   }
 });
 
+/////
+app.get('/get-project/:projectId', async (req, res) => {
+  const projectId = req.params.projectId;
+
+  try {
+    // Utilisez Mongoose pour récupérer les détails du projet depuis la base de données
+    const project = await Project.findById(projectId);
+
+    if (!project) {
+      return res.status(404).json({ error: 'Project not found' });
+    }
+
+    res.json(project);
+  } catch (error) {
+    console.error('Error fetching project details:', error);
+    res.status(500).json({ error: 'Error fetching project details', details: error.message });
+  }
+});
+
+/// update project
+app.put('/edit-project/:projectId', async (req, res) => {
+  const projectId = req.params.projectId;
+  const updatedProjectData = req.body;
+
+  try {
+    // Use Mongoose to update the project in the database
+    const updatedProject = await Project.findByIdAndUpdate(projectId, updatedProjectData, { new: true });
+
+    res.json(updatedProject);
+  } catch (error) {
+    console.error('Error updating project:', error);
+    res.status(500).json({ error: 'Error updating project', details: error.message });
+  }
+});
+
 
 // Suppression d'un projet
 app.delete('/delete-project/:projectId', async (req, res) => {
@@ -358,7 +393,40 @@ app.delete('/delete-comment/:commentId', async (req, res) => {
 });
 
 
+// Route pour obtenir les détails d'un commentaire par son ID
+app.get('/get-comment/:commentId', async (req, res) => {
+  const commentId = req.params.commentId;
 
+  try {
+    // Utilisez Mongoose pour récupérer les détails du commentaire depuis la base de données
+    const comment = await Comment.findById(commentId);
+
+    if (!comment) {
+      return res.status(404).json({ error: 'Comment not found' });
+    }
+
+    res.json(comment);
+  } catch (error) {
+    console.error('Error fetching comment details:', error);
+    res.status(500).json({ error: 'Error fetching comment details', details: error.message });
+  }
+});
+
+// Route pour mettre à jour un commentaire par son ID
+app.put('/edit-comment/:commentId', async (req, res) => {
+  const commentId = req.params.commentId;
+  const updatedCommentData = req.body;
+
+  try {
+    // Utilisez Mongoose pour mettre à jour le commentaire dans la base de données
+    const updatedComment = await Comment.findByIdAndUpdate(commentId, updatedCommentData, { new: true });
+
+    res.json(updatedComment);
+  } catch (error) {
+    console.error('Error updating comment:', error);
+    res.status(500).json({ error: 'Error updating comment', details: error.message });
+  }
+});
 
 
 

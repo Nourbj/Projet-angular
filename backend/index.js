@@ -226,6 +226,16 @@ app.put('/profile', upload.single('photo'), async (req, res) => {
     }
 });
 
+app.get('/users', async (req, res) => {
+    try {
+        const users = await User.find({}, 'username'); // Corrected from 'users.find'
+        res.json(users);
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        res.status(500).json({ error: 'Error fetching users' });
+    }
+});
+
     app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
     });

@@ -41,19 +41,19 @@
         <div class="form-group">
             <label class="form-label">Owner</label>
             <select name="owner" id="owner" required [(ngModel)]="task.owner" name="owner">
-                <option value="Hadil Yahiaoui">Hadil Yahiaoui</option>
-                <option value="Nour Ben Jannena">Nour Ben Jannena</option>
-                <option value="Foulen Ben Foulen">Foulen Ben Foulen</option>
+              <!-- Use *ngFor to iterate over users and dynamically generate options -->
+              <option *ngFor="let user of users" [value]="user.username">{{ user.username }}</option>
             </select>
-        </div>
-        <div class="form-group">
+          </div>
+      
+          <div class="form-group">
             <label class="form-label">Assignee</label>
             <select name="assignee" id="assignee" required [(ngModel)]="task.assignee" name="assignee">
-                <option value="Hadil Yahiaoui">Hadil Yahiaoui</option>
-                <option value="Nour Ben Jannena">Nour Ben Jannena</option>
-                <option value="Foulen Ben Foulen">Foulen Ben Foulen</option>
+              <!-- Use *ngFor to iterate over users and dynamically generate options -->
+              <option *ngFor="let user of users" [value]="user.username">{{ user.username }}</option>
             </select>
-        </div>
+          </div>
+      
         <button type="submit" class="btn btn-primary">Create task</button>
     </form>
 </div>

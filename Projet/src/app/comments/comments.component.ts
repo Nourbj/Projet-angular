@@ -19,25 +19,51 @@ export class CommentsComponent {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.projectId = params['projectId'];
+      // Log all params to help with debugging
+      console.log('All params:', params);
+  
       this.taskId = params['taskId'];
-
+      this.projectId = params['projectId'];
+  
+      console.log('Received parameters:');
       console.log('projectId:', this.projectId);
       console.log('taskId:', this.taskId);
+  
+      if (this.projectId && this.taskId) {
+        console.log('Parameters are defined. Loading comments...');
+        this.loadComments();
+      } else {
+        console.error('projectId or taskId is not defined.');
+      }
     });
-    this.loadComments();
   }
+  
 
   loadComments(): void {
-    this.http.get<any[]>(`http://localhost:3000/get-comments/${this.taskId}`).subscribe(
-    (data) => {
-      this.comments = data;
-      console.log(this.comments);
-    },
-    (error) => {
-      console.error('Error fetching comments:', error);
-    });
+    console.log('Inside loadComments method');
+
+    // Ensure that projectId and taskId are defined before making the request
+    if (this.projectId && this.taskId) {
+      const url = `http://localhost:3000/get-comments/${this.taskId}`;
+
+      console.log('Making HTTP request to:', url);
+
+      this.http.get<any[]>(url).subscribe(
+        (data) => {
+          this.comments = data;
+          console.log('Comments loaded successfully:', this.comments);
+        },
+        (error) => {
+          console.error('Error fetching comments:', error);
+        }
+      );
+    } else {
+      console.error('projectId or taskId is not defined.');
+    }
   }
+  
+  
+  
 
   navigateToSettings() : void {}
 
@@ -62,4 +88,30 @@ export class CommentsComponent {
   }
   }
 
+  navigateToEdit(comment: any) {
+    console.log('Navigating to edit:', comment);
+  
+    // Change task_id to taskId and _id to projectId
+    if (comment.task_id && comment._id) {
+      console.log('comment.taskId:', comment.task_id);
+      console.log('comment.projectId:', comment._id);
+  
+      // Utilisez les valeurs correctes pour projectId et taskId ici
+      const navigationPath = `/dashboard/${comment._id}/${comment.task_id}/comment/edit-comment/${comment._id}`;
+      this.router.navigate([navigationPath]);
+    } else {
+      console.error('Invalid projectId, taskId, or comment ID in comment:', comment);
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
 }
+
+

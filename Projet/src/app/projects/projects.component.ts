@@ -53,8 +53,8 @@ export class ProjectsComponent implements OnInit {
     this.router.navigate(['/dashboard/create-project']);
   }
 
-  navigateToSettings(): void {
-    this.router.navigate(['/dashboard/settings']);
+  navigateToSettings(projectId: string): void {
+    this.router.navigate(['/dashboard', projectId, 'edit-project']);
   }
   
   deleteProject(projectId: string): void {

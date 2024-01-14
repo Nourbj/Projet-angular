@@ -27,8 +27,22 @@ export class CreateTaskComponent {
     private route: ActivatedRoute 
   ) {}
 
+  users: any[] = []; // Array to store users
+
+  
+
   ngOnInit(): void {
     this.task.project_id = this.route.snapshot.paramMap.get('projectId') || '';
+
+    // Fetch users from the backend and populate the users array
+    this.http.get<any[]>('http://localhost:3000/users').subscribe(
+      (users) => {
+        this.users = users;
+      },
+      (error) => {
+        console.error('Error fetching users:', error);
+      }
+    );
   }
 
   createTask(): void {
