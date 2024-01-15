@@ -28,6 +28,7 @@ import { CreateTaskComponent } from './create-task/create-task.component';
 import { CreateCommentComponent } from './create-comment/create-comment.component';
 import { UpdateTaskComponent } from './update-task/update-task.component';
 import { EditComponent } from './edit/edit.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { EditComponent } from './edit/edit.component';
     CreateCommentComponent,
     UpdateTaskComponent,
     EditComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

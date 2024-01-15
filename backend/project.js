@@ -296,6 +296,29 @@ app.get('/task-details/:id', async (req, res) => {
 
 
 
+// GET USERS
+const userSchema = new mongoose.Schema ({
+  username: String,
+  email: String,
+  password: String
+});
+
+const User = mongoose.model('User', projectSchema);
+module.exports = User;
+
+
+app.get('/get-users', async (req, res) => {
+try {
+  const users = await User.find();
+  res.json(users);
+} catch (error) {
+  console.error('Error fetching users:', error);
+  res.status(500).json({ error: 'Error fetching users', details: error.message });
+}
+});
+
+
+
 
 // Comment CRUD
 const commentSchema = new mongoose.Schema({
