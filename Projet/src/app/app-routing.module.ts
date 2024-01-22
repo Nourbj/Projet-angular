@@ -22,7 +22,6 @@ import { CreateTaskComponent } from './create-task/create-task.component';
 import { CreateCommentComponent } from './create-comment/create-comment.component';
 import { UpdateTaskComponent } from './update-task/update-task.component';
 import { EditComponent } from './edit/edit.component';
-import { UsersComponent } from './users/users.component';
 
 
 const routes: Routes = [
@@ -47,7 +46,6 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'helping', component: HelpingComponent },
       { path: 'projects', component: ProjectsComponent}, 
-      { path: 'users', component: UsersComponent},
       { path: 'create-project', component: CreateProjectComponent},
       { path: 'settings/:projectId', component: EditProjectComponent},
       { path: ':projectId/tasks', component: TasksComponent},
